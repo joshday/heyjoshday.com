@@ -14,6 +14,7 @@ I am a PhD statistician who enjoys programming (particularly with Julia) for **d
 - [**TrendSpot**](https://trendspot.io): REST API and web app dashboard for agentless monitoring.
 
 ##### Open Source
+
 - [**OnlineStats**](https://github.com/joshday/OnlineStats.jl): Single-pass algorithms for statistics.
 - [**AverageShiftedHistograms**](https://github.com/joshday/AverageShiftedHistograms.jl): Kernel density estimation for big data.
 - [**SparseRegression**](https://github.com/joshday/SparseRegression.jl): Penalized (Ridge, LASSO, etc.) regression and classification models.

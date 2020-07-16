@@ -28,10 +28,17 @@
     border: 4px solid white;
     border-radius: 50%;
   }
+  .product-img {
+    height: 100px;
+    width: auto;
+  }
 </style>
 <!-- <link rel="icon" href="/assets/favicon.png"> -->
 
    <title>GLMNet Tutorial</title>  
+  <script src="/libs/lunr/lunr.min.js"></script>
+  <script src="/libs/lunr/lunr_index.js"></script>
+  <script src="/libs/lunr/lunrclient.min.js"></script>
 </head>
 <body>
 <div class="sidebar">
@@ -54,6 +61,13 @@
     <br>
 
     <p style="font-size: .8em; padding-right: 10px;">I am a Researcher/Developer living in Carrboro, NC.  When I'm not coding, I'm probably playing ultimate.</p>
+
+    <br>
+    <form id="lunrSearchForm" name="lunrSearchForm">
+      <input class="search-input" name="q" placeholder="Enter Search Term" type="text">
+      <br>
+      <input type="submit" value="Search" formaction="/search/index.html">
+    </form>
   </div>
 </div>
 <div class="content container">
