@@ -1,5 +1,6 @@
 @def title = "JuliaML Basics"
 @def author = "Josh Day"
+@def tags = ["Julia"]
 
 # JuliaML Basics
 

@@ -1,5 +1,6 @@
 @def title = "Why I use Julia"
 @def author = "Josh Day"
+@def tags = ["Julia"]
 
 # Why I Use Julia
 

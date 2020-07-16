@@ -1,5 +1,6 @@
 @def title = "GLMNet Tutorial"
 @def author = "Josh Day"
+@def tags = ["R"]
 
 # GLMNet Tutorial
 Recently, a friend informed me that something I created for [NC State's Statistical Learning Group](http://www4.stat.ncsu.edu/~post/slg.html) comes up on a google search for "glmnet tutorial".  In fall 2014, I gave an introduction to penalized regression, focusing on LASSO, Ridge, and Elastic Net.  
