@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="/libs/katex/katex.min.css">
+     
+   <link rel="stylesheet" href="/libs/highlight/github.min.css">
+   
+  <link rel="stylesheet" href="/css/franklin.css">
+<link rel="stylesheet" href="/css/poole_hyde.css">
+<!-- style adjustments -->
+<style>
+  html {font-size: 17px;}
+  .franklin-content {position: relative; padding-left: 8%; padding-right: 5%; line-height: 1.35em;}
+  @media (min-width: 940px) {
+    .franklin-content {width: 100%; margin-left: auto; margin-right: auto;}
+  }
+  @media (max-width: 768px) {
+    .franklin-content {padding-left: 6%; padding-right: 6%;}
+  }
+  @media (min-width: 768px) {
+    .sidebar-sticky {position: relative}
+  }
+  h5 {
+    color:darkgrey
+  }
+  .headshot {
+    width: 10rem; 
+    border: 4px solid white;
+    border-radius: 50%;
+  }
+</style>
+<!-- <link rel="icon" href="/assets/favicon.png"> -->
+
+   <title>Why I use Julia</title>  
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <img class="headshot" src="/assets/portrait.jpg">
+      <h1><a href="/">Dr. Josh Day</a></h1>
+    </div>
+    <br>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item " href="/">Home</a>
+      <a class="sidebar-nav-item active" href="/blog/">Blog</a>
+    </nav>
+
+    <br>
+    <a class="github-button" href="https://github.com/joshday" aria-label="Follow @joshday on GitHub">Follow @joshday</a> 
+    <a href="https://twitter.com/joshday_stats?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-dnt="true" data-show-count="false">Follow @joshday_stats</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <br>
+    <br>
+
+    <p style="font-size: .8em; padding-right: 10px;">I am a Researcher/Developer living in Carrboro, NC.  When I'm not coding, I'm probably playing ultimate.</p>
+  </div>
+</div>
+<div class="content container">
+
+<!-- Content appended here -->
+<div class="franklin-content"><h1 id="why_i_use_julia"><a href="#why_i_use_julia">Why I Use Julia</a></h1>
+<h2 id="multiple_dispatch_jit_dynamic_and_compiled"><a href="#multiple_dispatch_jit_dynamic_and_compiled">Multiple Dispatch &#43; JIT &#40;Dynamic and Compiled&#41;</a></h2>
+<p>When I am asked why I use Julia, my immediate response is “multiple dispatch”. Julia is well-known for performance, but that is only a part of what keeps me using it every day. <a href="https://en.wikipedia.org/wiki/Multiple_dispatch">Multiple dispatch</a>  is a feature where different code is called by a function depending on the types of the arguments. Combined with the JIT &#40;Just-in-time compiler&#41;, Julia will automatically compile specialized code for each set of argument types the function is called with.</p>
+<h3 id="simple_example"><a href="#simple_example">Simple Example</a></h3>
+<pre><code class="language-julia">f(x) = x + x</code></pre>
+<p>I have not given Julia any hint as to what the type of the argument is, but as long as it’s a type that supports addition, Julia will compile an optimized method for it. You can peek at the LLVM compiler code with the <code>@code_llvm</code> macro.  </p>
+<pre><code class="language-julia">julia> @code_llvm f(1)
+
+define i64 @julia_f_62945(i64) #0 !dbg !5 {
+top:
+  %1 = shl i64 %0, 1
+  ret i64 %1
+}
+
+julia> @code_llvm f(1.0)
+
+define double @julia_f_62949(double) #0 !dbg !5 {
+top:
+  %1 = fadd double %0, %0
+  ret double %1
+}</code></pre>
+<p>Ignoring some of the details, notice that these functions do not call the same code: one method is specific to 64-bit integers and the other for double precision floats&#33;</p>
+<h3 id="what_about_more_complicated_types"><a href="#what_about_more_complicated_types">What About More Complicated Types?</a></h3>
+<p>Here we will use the <a href="https://github.com/JuliaStats/Distributions.jl">Distributions</a>  package to implement a naive quantile finder using <a href="https://en.wikipedia.org/wiki/Newton&#37;27s_method">Newton&#39;s Method</a>:</p>
+\[
+x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
+\]
+<p>For quantiles, we are trying to find the number <code>x</code>, for a given number <code>q</code> &#40;between 0 and 1&#41;, such that</p>
+<pre><code class="language-julia">cdf(dist, x) - q = 0</code></pre>
+<p>where <code>cdf</code> is the <a href="https://en.wikipedia.org/wiki/Cumulative_distribution_function">cumulative distribution function</a> for distribution <code>dist</code>. We also need the derivative of the cdf, which is the <a href="https://en.wikipedia.org/wiki/Probability_density_function">probability density function</a>, or pdf.</p>
+<pre><code class="language-julia">using Distributions
+
+function myquantile(d, q)
+    out = mean(d)
+    for i in 1:10
+        out -= (cdf(d, out) - q) / pdf(d, out)
+    end
+    out
+end</code></pre>
+<p>Again, I have not told Julia anything about what <code>d</code> or <code>q</code> is, but when I provide arguments such as <code>Distributions.Normal&#40;0, 1&#41;</code> and <code>0.5</code>, Julia will compile specialized code to run the algorithm and then return the median for a standard normal distribution &#40;which is 0&#41;.</p>
+<pre><code class="language-julia">julia> myquantile(Normal(0,1), .5)
+0.0</code></pre>
+<p>Right out of the box, <code>myquantile</code> will also work with other distributions&#33;  In fact, as long as the function arguments have methods for <code>mean</code>, <code>cdf</code>, and <code>pdf</code>, it will just work&#33; If you were to implement this quantile algorithm in R, you would need to rewrite it for each distribution using the <a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Normal.html"><code>dnorm</code>/<code>pnorm</code></a>  family of functions.</p>
+<pre><code class="language-julia">julia> myquantile(Gamma(5,1), .7)
+5.890361313697006
+
+julia> myquantile(Beta(2, 4), .1)
+0.11223495854585855</code></pre>
+<h2 id="takeaway"><a href="#takeaway">Takeaway</a></h2>
+<p>The language you use has a tremendous effect on how you approach problems &#40;see <a href="https://en.wikipedia.org/wiki/Linguistic_relativity">linguistic relativity</a>&#41;. I have a background in statistics, so naturally R was one of the first languages I learned. I don’t mean to bash R &#40;language wars are boring&#41; as it is a fantastic tool for data analysis, but I often find myself asking “how do I solve this without a for loop?” since <a href="http://adv-r.had.co.nz/Performance.html">loops are slow in R</a>. In Julia, I have fewer performance obstacles, so my questions are more along the lines of “what are the methods I’m trying to accomplish this task with?”. If I can reduce a task to the operations that need to be performed, it becomes easy to write abstract yet performant code that works with any types I throw at it.</p>
+<p>Multiple dispatch has become invaluable to how I code, and with Julia you get it along with stellar performance. If you want to see how I use multiple dispatch to get a lot done with very little code, check out my package <a href="https://github.com/joshday/OnlineStats.jl">OnlineStats.jl</a> for calculating statistics/models on data streams with single-pass algorithms.</p>
+<p>I hope you try Julia for yourself and have the same experience I had.</p>
+<p><strong>Come for the speed.  Stay for the productivity.</strong><div class="page-foot">
+  <div class="copyright">
+    &copy; Josh Day. Last modified: July 16, 2020. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+  </div>
+</div>
+
+
+<script async defer src="https://buttons.github.io/buttons.js"></script></div><!-- CONTENT ENDS HERE -->
+    </div>  <!-- div: content container -->
+    
+        <script src="/libs/katex/katex.min.js"></script>
+<script src="/libs/katex/auto-render.min.js"></script>
+<script>renderMathInElement(document.body)</script>
+
+    
+    
+        <script src="/libs/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
+
+    
+  </body>
+</html>

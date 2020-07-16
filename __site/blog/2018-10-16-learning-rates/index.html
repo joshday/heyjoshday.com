@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="/libs/katex/katex.min.css">
+     
+  
+  <link rel="stylesheet" href="/css/franklin.css">
+<link rel="stylesheet" href="/css/poole_hyde.css">
+<!-- style adjustments -->
+<style>
+  html {font-size: 17px;}
+  .franklin-content {position: relative; padding-left: 8%; padding-right: 5%; line-height: 1.35em;}
+  @media (min-width: 940px) {
+    .franklin-content {width: 100%; margin-left: auto; margin-right: auto;}
+  }
+  @media (max-width: 768px) {
+    .franklin-content {padding-left: 6%; padding-right: 6%;}
+  }
+  @media (min-width: 768px) {
+    .sidebar-sticky {position: relative}
+  }
+  h5 {
+    color:darkgrey
+  }
+  .headshot {
+    width: 10rem; 
+    border: 4px solid white;
+    border-radius: 50%;
+  }
+</style>
+<!-- <link rel="icon" href="/assets/favicon.png"> -->
+
+   <title>Choosing a Learning Rate is Hard</title>  
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <img class="headshot" src="/assets/portrait.jpg">
+      <h1><a href="/">Dr. Josh Day</a></h1>
+    </div>
+    <br>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item " href="/">Home</a>
+      <a class="sidebar-nav-item active" href="/blog/">Blog</a>
+    </nav>
+
+    <br>
+    <a class="github-button" href="https://github.com/joshday" aria-label="Follow @joshday on GitHub">Follow @joshday</a> 
+    <a href="https://twitter.com/joshday_stats?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-dnt="true" data-show-count="false">Follow @joshday_stats</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <br>
+    <br>
+
+    <p style="font-size: .8em; padding-right: 10px;">I am a Researcher/Developer living in Carrboro, NC.  When I'm not coding, I'm probably playing ultimate.</p>
+  </div>
+</div>
+<div class="content container">
+
+<!-- Content appended here -->
+<div class="franklin-content"><h1 id="choosing_a_learning_rate_is_hard"><a href="#choosing_a_learning_rate_is_hard">Choosing a Learning Rate is Hard</a></h1>
+<p>Stochastic approximation &#40;SA&#41; algorithms have a wide variety of uses in machine learning and big data.  In the SA setup, there&#39;s function you&#39;re trying to minimize,</p>
+\[F(\theta) = E_Y[f(Y,\theta)],\]
+<p>but you&#39;re unable &#40;or it&#39;s expensive&#41; to evaluate this expectation.  Instead of working with \(F\) directly, we&#39;ll use random samples from the distribution of \(Y\) &#40;\(y_1,y_2,\ldots\)&#41; and take small steps for our estimate \(\theta^{(t)}\) that we think will improve &#40;decrease&#41; the value of \(F(\theta)\).</p>
+<hr />
+<p>As a concrete example, think of linear regression:</p>
+\[F(\beta) = \sum_{i=1}^n \frac{1}{2}(y_i - x_i^T\beta)^2.\]
+<p>We need to make updates to our estimate \(\beta^{(t)}\) given a single observation \((y_t, x_t)\).  The SA approach is extendable to mini-batches of multiple observations, but we&#39;ll stay in the simple case for now.</p>
+<p>On-line updates for linear regression have a closed form &#40;which I will blog about sometime in the future&#41;, but pretend we don&#39;t know this and we&#39;re going to apply stochastic gradient descent &#40;SGD&#41;, parameterized by a <strong>learning rate</strong> \(\gamma_t\).</p>
+<ul>
+<li><p>SGD &#40;General form&#41;</p>
+</li>
+</ul>
+\[
+\theta^{(t)} = \theta^{(t-1)} - \gamma_t \nabla f(y_t, \theta^{(t-1)}).
+\]
+<ul>
+<li><p>SGD for Linear Regression:</p>
+</li>
+</ul>
+\[
+\beta^{(t)} = \beta^{(t-1)} + \gamma_t (y_t - x_t^T\beta^{(t-1)})x_t.
+\]
+<p>This learning rate is often chosen to be \(t^{-r}\) where \(r \in [.5, 1]\).  </p>
+<hr />
+<h2 id="what_learning_rate_is_quotbestquot"><a href="#what_learning_rate_is_quotbestquot">What Learning Rate is &quot;Best&quot;?</a></h2>
+<p>Below is an animation of the linear regression loss value &#40;\(F(\beta)\)&#41; for a changing learning rate parameter &#40;from \(.5\) to \(1\)&#41; for SGD and variety of variants that supposedly improve on SGD &#40;hyperparameters chosen as recommended by the papers that introduced the algorithm&#41;.  The y-axis is cut off at the loss evaluated at the OLS estimate, so that as the lines approach the bottom of the plot, the algorithm approaches the best solution.</p>
+<p><img src="https://user-images.githubusercontent.com/8075494/47049048-2a3a4300-d16a-11e8-992d-c21288c6cfac.gif" alt="" /></p>
+<p>Note that you won&#39;t find literature on OMAS, OMAP, and MSPI, as they are introduced in my dissertation &#40;a paper or two is still in the works&#41;.</p>
+<p>It is difficult to pick out a clear winner &#40;except for maybe MSPI...&#41; for a few reasons:</p>
+<ol>
+<li><p><strong>The methods are extremely dependent on the learning rate</strong></p>
+</li>
+<li><p><strong>The methods react to the learning rate in different ways</strong></p>
+</li>
+</ol>
+<p>The takeaway is that <strong>we can&#39;t make definitive statements about which method is best for even a straightforward model like linear regression, so be wary of bold claims</strong> about a given method&#39;s superiority in deep learning.  It seems to me that one should be very concerned with an algorithm&#39;s &quot;robustness&quot; to the choice of learning rate, which is something that doesn&#39;t get much attention in the SA literature.  <div class="page-foot">
+  <div class="copyright">
+    &copy; Josh Day. Last modified: July 16, 2020. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+  </div>
+</div>
+
+
+<script async defer src="https://buttons.github.io/buttons.js"></script></div><!-- CONTENT ENDS HERE -->
+    </div>  <!-- div: content container -->
+    
+        <script src="/libs/katex/katex.min.js"></script>
+<script src="/libs/katex/auto-render.min.js"></script>
+<script>renderMathInElement(document.body)</script>
+
+    
+    
+  </body>
+</html>

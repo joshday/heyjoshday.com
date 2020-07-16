@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="/libs/katex/katex.min.css">
+     
+  
+  <link rel="stylesheet" href="/css/franklin.css">
+<link rel="stylesheet" href="/css/poole_hyde.css">
+<!-- style adjustments -->
+<style>
+  html {font-size: 17px;}
+  .franklin-content {position: relative; padding-left: 8%; padding-right: 5%; line-height: 1.35em;}
+  @media (min-width: 940px) {
+    .franklin-content {width: 100%; margin-left: auto; margin-right: auto;}
+  }
+  @media (max-width: 768px) {
+    .franklin-content {padding-left: 6%; padding-right: 6%;}
+  }
+  @media (min-width: 768px) {
+    .sidebar-sticky {position: relative}
+  }
+  h5 {
+    color:darkgrey
+  }
+  .headshot {
+    width: 10rem; 
+    border: 4px solid white;
+    border-radius: 50%;
+  }
+</style>
+<!-- <link rel="icon" href="/assets/favicon.png"> -->
+
+   <title>MM Algorithms</title>  
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <img class="headshot" src="/assets/portrait.jpg">
+      <h1><a href="/">Dr. Josh Day</a></h1>
+    </div>
+    <br>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item " href="/">Home</a>
+      <a class="sidebar-nav-item active" href="/blog/">Blog</a>
+    </nav>
+
+    <br>
+    <a class="github-button" href="https://github.com/joshday" aria-label="Follow @joshday on GitHub">Follow @joshday</a> 
+    <a href="https://twitter.com/joshday_stats?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-dnt="true" data-show-count="false">Follow @joshday_stats</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <br>
+    <br>
+
+    <p style="font-size: .8em; padding-right: 10px;">I am a Researcher/Developer living in Carrboro, NC.  When I'm not coding, I'm probably playing ultimate.</p>
+  </div>
+</div>
+<div class="content container">
+
+<!-- Content appended here -->
+<div class="franklin-content"><h1 id="mm_algorithms"><a href="#mm_algorithms">MM Algorithms</a></h1>
+<h2 id="definition"><a href="#definition">Definition</a></h2>
+<p>Majorization-Minimization &#40;MM&#41; is an important concept in optimization.  It is more of a principle than a specific algorithm, and many algorithms can be interpreted under the MM framework &#40;coordinate descent, proximal gradient method, EM Algorithm, etc.&#41;.  The main idea is the concept of a <em>majorizing</em> function.  </p>
+<p><strong>A Function \(h(\theta)\) is said to <em>majorize</em> \(f(\theta)\) at \(\theta^{(t)}\) if</strong></p>
+\[
+\begin{aligned} 
+  h(\theta | \theta^{(t)}) &\ge f(\theta | \theta^{(t)}) \quad\text{(dominance condition)}, \\
+  h(\theta^{(t)} | \theta^{(t)}) &= f(\theta^{(t)} | \theta^{(t)}) \quad\text{(tangent condition)}.
+\end{aligned}
+\]
+<p>Simply put, the surface of \(h(\theta)\) lies above \(f(\theta)\), apart from at \(\theta^{(t)}\) where they are equal.  An MM update consists of minimizing the majorization:</p>
+\[\theta^{(t+1)} = \text{argmin}_\theta \;h(\theta|\theta^{(t)}).\]
+<p>Things to note:</p>
+<ul>
+<li><p>MM updates are <strong>guaranteed to decrease the value of the objective function</strong> &#40;descent property&#41;.</p>
+</li>
+<li><p>Majorizations are often used to <strong>split parameters</strong>, allowing updates to be done element-wise.</p>
+</li>
+</ul>
+<h2 id="visualization"><a href="#visualization">Visualization</a></h2>
+<ul>
+<li><p>Blue: Objective</p>
+</li>
+<li><p>Green: Majorization</p>
+</li>
+<li><p>Red: Parameter Estimate</p>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/8075494/44230928-8a146d80-a16a-11e8-92ef-63dc493e118b.gif" alt="" /></p>
+<h2 id="example_logistic_regression"><a href="#example_logistic_regression">Example: Logistic Regression</a></h2>
+<h3 id="majorization"><a href="#majorization">Majorization</a></h3>
+<p>One technique for majorizing a convex function is a quadratic upper bound.  If we can find a matrix \(M\) such that \(M - d^2f(\theta)\) is nonnegative definite for all \(\theta\), then</p>
+\[f(\theta) \le f(\theta^{(t)}) + \nabla f(\theta^{(t)})^T(\theta - \theta^{(t)}) + \frac{1}{2}(\theta - \theta^{(t)})^T M (\theta - \theta^{(t)}).\]
+<p>Using the RHS as our majorization, updates take the form</p>
+\[\theta^{(t+1)} = \theta^{(t)} - M^{-1}\nabla f(\theta^{(t)}).\]
+<p>This method produces an update rule that looks like Newton&#39;s method, but uses an approximation of the Hessian which guarantees descent.</p>
+<h3 id="logistic_regression"><a href="#logistic_regression">Logistic Regression</a></h3>
+<p>The negative log-likelihood for the logistic regression model provides the components</p>
+\[
+\begin{aligned}
+  f(\beta) &= \sum_i \left\{-y_i x_i^T\beta + \ln\left[1 + \exp(x_i^T\beta)\right]\right\} \\
+  \nabla f(\beta) &= \sum_i -[y_i - \hat{y_i}(\beta)]x_i \\
+  d^2 f(\beta) &= \sum_i \hat{y_i}(\beta)[1 - \hat{y_i}(\beta)]x_i x_i^T
+\end{aligned}
+\]
+<p>where each \(x_i\) is a vector of predictors, \(y_i\in\{0, 1\}\) is the response, and \(\hat{y_i}(\beta) = (1 + \exp(-x_i^T\beta))^{-1}\).  Continuing to create the majorization:</p>
+<ul>
+<li><p>In matrix form, the Hessian is \(d^2 f(\beta) = X^TWX\), where \(W\) is a diagonal matrix with entries \(\hat{y_i}(1 - \hat{y_i})\).  </p>
+</li>
+<li><p>\(\hat{y_i}\) can only take values in &#40;0, 1&#41;, so \(\frac{1}{4} \ge \hat{y_i}(1 - \hat{y_i})\).  </p>
+</li>
+<li><p>Therefore, we can use \(M = X^TX/4\) to create a quadratic upper bound.  Compare this MM update to Newton&#39;s method.</p>
+</li>
+</ul>
+<h4 id="mm_updates"><a href="#mm_updates">MM Updates</a></h4>
+\[
+\beta^{(t+1)} = \beta^{(t)} - 4\left(X^TX\right)^{-1}X^T(y - \hat{y}(\beta^{(t)}))
+\]
+<h4 id="newton_updates"><a href="#newton_updates">Newton Updates</a></h4>
+\[
+\beta^{(t+1)} = \beta^{(t)} - \left(X^TWX\right)^{-1}X^T(y - \hat{y}(\beta^{(t)}))
+\]
+<p>In this case, MM has the advantage of being able to reuse \((X^TX)^{-1}\) after it is computed once, whereas Newton&#39;s method must solve a linear system at each iteration.<div class="page-foot">
+  <div class="copyright">
+    &copy; Josh Day. Last modified: July 16, 2020. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+  </div>
+</div>
+
+
+<script async defer src="https://buttons.github.io/buttons.js"></script></div><!-- CONTENT ENDS HERE -->
+    </div>  <!-- div: content container -->
+    
+        <script src="/libs/katex/katex.min.js"></script>
+<script src="/libs/katex/auto-render.min.js"></script>
+<script>renderMathInElement(document.body)</script>
+
+    
+    
+  </body>
+</html>
