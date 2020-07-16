@@ -5,9 +5,7 @@ function hfun_blogposts()
     posts = sort!(filter!(x -> endswith(x, ".md") && x != "index.md", readdir(joinpath(@__DIR__, "blog"))); rev=true)
     for post in first.(splitext.(posts))
         url = splitext("/blog/$post/")[1]
-        @info url
         title = pagevar(strip(url, '/'), :title)
-        @info title
         date = Date(post[1:10])
         date ≤ today() && write(io, "\n[$title]($url) $date \n")
     end
