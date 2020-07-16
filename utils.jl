@@ -2,7 +2,7 @@ using Dates
 
 function hfun_blogposts()
     io = IOBuffer()
-    posts = sort!(filter!(x -> endswith(x, ".md") && x != "index.md", readdir(joinpath(@__DIR__, "blog"))))
+    posts = sort!(filter!(x -> endswith(x, ".md") && x != "index.md", readdir(joinpath(@__DIR__, "blog"))); rev=true)
     for post in first.(splitext.(posts))
         url = splitext("/blog/$post/")[1]
         @info url
