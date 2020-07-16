@@ -1,7 +1,7 @@
 @def title = "Josh Day"
 @def tags = ["home"]
 
-# Bio
+# About Me
 
 I am a PhD statistician who enjoys programming (particularly with Julia) for **difficult optimization and machine learning problems**.  My niche is the intersection of statistics and computer science, which allows me to quickly translate whiteboard math into efficient programs.  During my PhD years I researched **on-line algorithms for statistics** (single-pass algorithms for streaming and big data), an underused paradigm where statistics/models can be updated on new batches of data without revisiting past observations (see [**OnlineStats.jl**](https://github.com/joshday/OnlineStats.jl)).  I am a [research scientist](https://www.seqstat.com/post/mm-algorithms/), [data scientist](https://www.seqstat.com/post/glmnet-tutorial/), [machine learning engineer](https://www.seqstat.com/post/juliaml/), and [software engineer](https://www.seqstat.com/post/whyjulia/). I contribute to a variety of open source data science tools, some of which can be found here: [https://github.com/joshday](https://github.com/joshday).
 
@@ -71,6 +71,7 @@ I am a PhD statistician who enjoys programming (particularly with Julia) for **d
 
 Slides and other materials available at [https://github.com/joshday/Talks](https://github.com/joshday/Talks).
 
+- _**Financial Modeling Using Julia on Large, Streaming Datasets**_: Julia Computing Webinar March 2020
 - _**Scalable Data Analysis with JuliaDB and OnlineStats**_: JuliaCon 2018
 - _**SparseRegression.jl: Linear Models with Sparse Coefficients**_: JuliaCon 2017
 - _**Sorting Algorithms**_: NC State, ST 758: Statistical Computing (Fall 2017)
