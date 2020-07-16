@@ -26,7 +26,7 @@ $$
 \theta^{(t)} = \theta^{(t-1)} + \frac{1}{\sqrt t}\text{diag}(G_t^*)^{-\frac{1}{2}}g_t,
 $$
 
-where $G_t^\* = t^{-1} G_t$.  That is, if the matrix term producing the adaptive step sizes
+where $G_t^* = t^{-1} G_t$.  That is, if the matrix term producing the adaptive step sizes
 is considered as a *mean* instead of a *sum*, we see that **AdaGrad has a learning rate**
 $\gamma_t = 1/\sqrt t$.
 
