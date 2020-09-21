@@ -46,9 +46,10 @@ I am a PhD statistician who enjoys programming (particularly with Julia) for **d
 
 ### Senior Research Scientist at Julia Computing
 ##### Oct 2017 - Aug 2019, Oct 2019 - Current
-- Integrated OnlineStats with JuliaDB for calculating statistics and models out-of-core.
+- Built custom Julia software for clients (healthcare and government sectors).
+- Consulted with businesses on optimizing Julia code.
 - Maintained and contributed to a variety of open source projects.
-- Built custom Julia software for clients (health care and government sectors).
+
 
 
 ### Data Scientist II at Valassis Digital 
