@@ -27,6 +27,11 @@ I am a PhD statistician who enjoys programming (particularly with Julia) for **d
 - [**SparseRegression**](https://github.com/joshday/SparseRegression.jl): Penalized (Ridge, LASSO, etc.) regression and classification models.
 - View all my other projects on [**GitHub**](https://github.com/joshday?tab=repositories).
 
+##### Closed Source
+
+- Web API for NLP (Natural language processing)
+- Web app and backend for time series analysis based on news article NLP (sentiment, entities) of various sources.
+- Data processing/visualization tools for test flight data.
 
 # Education
 
