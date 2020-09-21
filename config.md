@@ -8,6 +8,7 @@ The website_* must be defined for the RSS to work
 @def website_url   = "https://seqstat.com"
 
 @def author = "Josh Day"
+@def prepath = "seqstat.com"
 
 @def mintoclevel = 2
 
