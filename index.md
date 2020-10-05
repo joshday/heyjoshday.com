@@ -3,31 +3,32 @@
 
 # About Me
 
-I am a PhD statistician who enjoys programming (particularly with Julia) for **difficult optimization and machine learning problems**.  My niche is the intersection of statistics and computer science, which allows me to quickly translate whiteboard math into efficient programs.  During my PhD years I researched **on-line algorithms for statistics** (single-pass algorithms for streaming and big data), an underused paradigm where statistics/models can be updated on new batches of data without revisiting past observations (see [**OnlineStats.jl**](https://github.com/joshday/OnlineStats.jl)).  I am a [research scientist](https://www.seqstat.com/post/mm-algorithms/), [data scientist](https://www.seqstat.com/post/glmnet-tutorial/), [machine learning engineer](https://www.seqstat.com/post/juliaml/), and [software engineer](https://www.seqstat.com/post/whyjulia/). I contribute to a variety of open source data science tools, some of which can be found here: [https://github.com/joshday](https://github.com/joshday).
+I am a PhD statistician who enjoys programming (particularly with Julia) for difficult optimization and machine learning problems.  My niche is the intersection of statistics and computer science, which allows me to quickly translate whiteboard math into efficient programs.  During my PhD years I researched on-line algorithms for statistics (single-pass algorithms for streaming and big data), an underused paradigm where statistics/models can be updated on new batches of data without revisiting past observations (see [**OnlineStats.jl**](https://github.com/joshday/OnlineStats.jl)).  I am a [research scientist](https://www.seqstat.com/post/mm-algorithms/), [data scientist](https://www.seqstat.com/post/glmnet-tutorial/), [machine learning engineer](https://www.seqstat.com/post/juliaml/), and [software engineer](https://www.seqstat.com/post/whyjulia/). I contribute to a variety of open source data science tools, some of which can be found here: [https://github.com/joshday](https://github.com/joshday).
 
-##### Social Links
+### Social Links
+
 ~~~
 <a class="github-button" href="https://github.com/joshday" aria-label="Follow @joshday on GitHub">Follow @joshday</a> 
-<br>
+
 <a href="https://twitter.com/joshday_stats?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-dnt="true" data-show-count="false">Follow @joshday_stats</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 ~~~
 
 
 # Things I've Built
 
-##### Products 
+#### Products 
 
 - [**One Click Tuner**](https://oneclicktuner.com): Chromatic musical instrument tuner for iOS.
 - [**TrendSpot**](https://trendspot.io): REST API and web app dashboard for agentless monitoring.
 
-##### Open Source
+#### Open Source
 
 - [**OnlineStats**](https://github.com/joshday/OnlineStats.jl): Single-pass algorithms for statistics.
 - [**AverageShiftedHistograms**](https://github.com/joshday/AverageShiftedHistograms.jl): Kernel density estimation for big data.
 - [**SparseRegression**](https://github.com/joshday/SparseRegression.jl): Penalized (Ridge, LASSO, etc.) regression and classification models.
 - View all my other projects on [**GitHub**](https://github.com/joshday?tab=repositories).
 
-##### Closed Source
+#### Closed Source
 
 - Web API for NLP (Natural language processing)
 - Web app and backend for time series analysis based on news article NLP (sentiment, entities) of various sources.
