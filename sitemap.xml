@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+<url>
+    <loc>https://seqstat.com/blog/2019-01-22-one-click-tuner/index.html</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://seqstat.com/blog/2015-10-02-glmnet-tutorial/index.html</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://seqstat.com/blog/2017-11-28-adagrad-has-learning-rate/index.html</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://seqstat.com/blog/2018-10-16-learning-rates/index.html</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://seqstat.com/blog/2016-12-24-mm-algorithms/index.html</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://seqstat.com/blog/2018-08-17-why-i-use-julia/index.html</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://seqstat.com/search/index.html</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://seqstat.com/blog/2020-06-16-new-site/index.html</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://seqstat.com/blog/2022-09-09-expanding-histograms/index.html</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://seqstat.com/index.html</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://seqstat.com/blog/2017-07-12-juliaml-basics/index.html</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://seqstat.com/blog/index.html</loc>
+    <lastmod>2020-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+</urlset>
