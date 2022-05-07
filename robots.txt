@@ -1,0 +1,4 @@
+Sitemap: https://heyjoshday.com/sitemap.xml
+
+User-agent: *
+Disallow:
