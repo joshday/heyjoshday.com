@@ -1,1 +1,3 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/7b2a1d4a-ce71-4eb6-943f-df2c308f314f/deploy-status)](https://app.netlify.com/sites/stoic-meitner-113061/deploys)
+# heyjoshday.com
+
+This is the source code for my personal website.

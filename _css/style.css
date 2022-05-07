@@ -1,0 +1,29 @@
+.sep {
+    width: 90%;
+    border-bottom: 1px solid lightgrey;
+}
+
+.jobdates {
+    color: gray;
+    font-size: 14px;
+}
+
+.sidebar-about h2 {
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.sidebar-about p {
+    margin-bottom: 50px;
+}
+
+.result-title a { text-decoration: none; }
+.result-title a:hover { text-decoration: underline; }
+.result-preview { color: #808080; }
+.resultCount { color: #808080; }
+.result-query { font-weight: bold; }
+#lunrSearchForm { margin-top: 1em; }
+
+#searchbox {
+    width: 100%;
+}

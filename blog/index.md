@@ -1,7 +1,7 @@
-@def title = "Josh Day's Blog"
+@def title = "Josh Day | Blog"
 @def author = "Josh Day"
 
-# Blog Posts
+# Blog
 
 \\
 

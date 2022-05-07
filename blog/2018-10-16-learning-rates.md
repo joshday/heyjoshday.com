@@ -15,7 +15,7 @@ As a concrete example, think of linear regression:
 
 $$F(\beta) = \sum_{i=1}^n \frac{1}{2}(y_i - x_i^T\beta)^2.$$
 
-We need to make updates to our estimate $\beta^{(t)}$ given a single observation $(y_t, x_t)$.  The SA approach is extendable to mini-batches of multiple observations, but we'll stay in the simple case for now.
+We need to make updates to our estimate $\beta^{(t)}$ given a single observation $(y_t, x_t)$.  The SA approach is extendable to mini-batches of multiple observations, but we'll stay in the single-observation case for now.
 
 On-line updates for linear regression have a closed form (which I will blog about sometime in the future), but pretend we don't know this and we're going to apply stochastic gradient descent (SGD), parameterized by a **learning rate** $\gamma_t$.
 
@@ -29,7 +29,7 @@ $$
 \beta^{(t)} = \beta^{(t-1)} + \gamma_t (y_t - x_t^T\beta^{(t-1)})x_t.
 $$
 
-This learning rate is often chosen to be $t^{-r}$ where $r \in [.5, 1]$.  
+This learning rate is often chosen to be $t^{-r}$ where $r \in [.5, 1]$.
 
 
 ---
@@ -47,4 +47,4 @@ It is difficult to pick out a clear winner (except for maybe MSPI...) for a few 
 1. **The methods are extremely dependent on the learning rate**
 2. **The methods react to the learning rate in different ways**
 
-The takeaway is that **we can't make definitive statements about which method is best for even a straightforward model like linear regression, so be wary of bold claims** about a given method's superiority in deep learning.  It seems to me that one should be very concerned with an algorithm's "robustness" to the choice of learning rate, which is something that doesn't get much attention in the SA literature.  
+The takeaway is that **we can't make definitive statements about which method is best for even a straightforward model like linear regression, so be wary of bold claims** about a given method's superiority in deep learning.  It seems to me that one should be very concerned with an algorithm's "robustness" to the choice of learning rate, which is something that doesn't get much attention in the SA literature.

@@ -1,4 +1,4 @@
-@def title = "Search ⋅ seqstat.com"
+@def title = "Josh Day | search"
 
 ## Search
 
