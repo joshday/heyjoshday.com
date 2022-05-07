@@ -261,6 +261,10 @@ html {
   background-color: #202020;
 }
 
+.sidebar > * {
+  margin-top: 24px;
+}
+
 @media (min-width: 768px) {
   .sidebar {
     position: fixed;

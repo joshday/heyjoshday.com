@@ -8,26 +8,31 @@
   </div>
 
   <div class="sidebar-about">
-    <h2><a href="/">Dr. Josh Day</a></h2>
-    <p class="lead"><a href="https://julialang.org/" target="_blank" rel="noreferrer" style="color: #FFFFFF80">#JuliaLang</a>, Data science, and more.</p>
+    <a href="/"><img src="/assets/gh.jpeg" style="border-radius:50%; width: 150px; margin-top: 50px; margin: auto;"><h2 style="color:white;">Dr. Josh Day</h2></a>
+    <p class="lead">
+      <a href="https://julialang.org/" target="_blank" rel="noreferrer" style="color: #FFFFFF80">#JuliaLang</a>
+      <br>
+      #DataScience
+      <br>
+      #DataViz
+      <br>
+      #Statistics
+    </p>
+
   </div>
 
   <div class="sidebar-item">
-    <nav class="sidebar-nav">
+    <nav class="sidebar-nav" style="border-top: 1px solid #FFFFFF20; border-bottom: 1px solid #FFFFFF20;">
       <a class="sidebar-nav-item {{ispage index.html}}active{{end}}" href="/">Home</a>
       <a class="sidebar-nav-item {{ispage /blog/*}}active{{end}}" href="/blog/">Blog</a>
     </nav>
   </div>
 
-  <div class="sidebar-item">
+  <div class="sidebar-item sidebar-sticky">
     <form id="lunrSearchForm" name="lunrSearchForm">
-      <input class="search-input" id="searchbox" name="q" placeholder="Site Search" type="text">
+      <input class="search-input" id="searchbox" name="q" placeholder="Search" type="text">
       <input class="btn" type="submit" value="Search" formaction="/search/index.html" style="visibility: hidden">
     </form>
-  </div>
-
-  <div class="container sidebar-sticky">
-    <p style="font-size: 12px;">&copy; {{fill author}} 2022.</p>
   </div>
 </div>
 
