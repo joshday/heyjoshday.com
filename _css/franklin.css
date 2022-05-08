@@ -162,7 +162,13 @@ h6 {
 td {
   font-size: var(--small);
   padding: 10px;
-  border-bottom: 1px solid lightgrey;
+}
+.franklin-content tr th {
+  font-size: var(--normal);
+  background-color: #f3f4f6;
+}
+.franklin-content tr {
+  border-radius: 8px;
 }
 
 .franklin-content blockquote {

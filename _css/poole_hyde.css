@@ -123,9 +123,6 @@ p {
   margin-bottom: 1rem;
 }
 
-strong {
-  color: #303030;
-}
 
 
 /* Lists */
@@ -207,7 +204,7 @@ th {
 
 tbody tr:nth-child(even) td,
 tbody tr:nth-child(even) th {
-  background-color: #f9f9f9;
+  /* background-color: #f9f9f9; */
 }
 
 /*
