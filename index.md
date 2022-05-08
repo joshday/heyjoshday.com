@@ -36,13 +36,12 @@ My name is Josh.  I work on all things "technical computing", but my niche is th
 |**BS**, Math & Statistics | 2012 | Winona State University |
 |**BA**, Economics & Music | 2009 | Winona State University |
 
+
 # Work History
 
-**Senior Research Scientist at Julia Computing** ~~~<span class="jobdates">(Oct 2017 - Aug 2019, Oct 2019 - Current)</span>~~~
-- Built custom Julia software for clients (healthcare and government sectors).
-- Consulted with businesses on optimizing Julia code.
-- Maintained and contributed to a variety of open source projects.
-
+**Senior Research Scientist at Julia Computing** ~~~<span class="jobdates">(Oct 2017 - Current)</span>~~~
+- Led development of R&D projects for government customers.
+- Performed Julia consulting and training.
 
 
 **Data Scientist II at Valassis Digital** ~~~<span class="jobdates">(Aug 2019 - Oct 2019)</span>~~~
@@ -51,14 +50,13 @@ My name is Josh.  I work on all things "technical computing", but my niche is th
 
 **Data Scientist Intern at MaxPoint** ~~~<span class="jobdates">(May 2015 - Aug 2015)</span>~~~
 - Developed on-line algorithms for advertising retargeting (logistic and survival models).
-- Worked with big data and associated technologies like Hadoop and Spark.
-- Fit a lot of Scikit-learn models.
+- Fitted many Scikit-Learn models.
 
 
 **Statistical Development Intern at SAS-JMP** ~~~<span class="jobdates">(May 2013 - May 2014, May 2015 - May 2016)</span>~~~
-- Researched new methodologies being considered for JMP platforms (Bayesian and DOE).
+- Researched methods being considered for JMP platforms (Bayesian and DOE).
 - Wrote test suites using JMP Scripting Language (JSL) for validating statistical results.
-- Redesigned the UI for the JMP Starter.
+- Led development of redesigning the JMP Starter.
 
 
 **Statistics Consultant at Winona State University** ~~~<span class="jobdates">(Jan 2012 - Aug 2012)</span>~~~
@@ -66,8 +64,7 @@ My name is Josh.  I work on all things "technical computing", but my niche is th
 
 
 **CRM Analytics Intern at Best Buy** ~~~<span class="jobdates">(May 2011 - Sep 2011)</span>~~~
-- Created weekly A/B testing reports using SAS and SQL.
-- Researched customer subgroups as the first step of large-scale experiments.
+- Planned and analyzed A/B experiments using SAS and SQL.
 
 # Selected Talks
 
