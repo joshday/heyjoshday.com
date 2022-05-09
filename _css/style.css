@@ -36,7 +36,7 @@
     border-radius: 4px;
     border: 0;
     padding: 8px;
-    background-color: #FFFFFF20;
+    background-color: #FFFFFF20 !important;
 }
 
 #searchbox:focus {
