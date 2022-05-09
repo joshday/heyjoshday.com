@@ -1,5 +1,6 @@
 .sep {
     width: 90%;
+    display: block;
     border-bottom: 1px solid lightgrey;
 }
 
@@ -37,8 +38,17 @@
     border: 0;
     padding: 8px;
     background-color: #FFFFFF20 !important;
+    -webkit-appearance: none;
 }
 
 #searchbox:focus {
   border: 2px solid #0ea5e9;
+}
+
+.center-parent {
+    width: 100%;
+    text-align: center;
+}
+.center-child {
+    display: inline-block;
 }
