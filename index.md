@@ -40,8 +40,8 @@ My name is Josh.  I work on all things "technical computing", but my niche is th
 # Work History
 
 🏢 **Senior Research Scientist at Julia Computing** ~~~<span class="jobdates">(Oct 2017 - Current)</span>~~~
-- Led development of R&D projects for government customers.
-- Performed Julia consulting and training.
+- Led development team for several government R&D customers.
+- Developed open source packages [PlotlyLight.jl](https://github.com/JuliaComputing/PlotlyLight.jl), [SQLiteGraph.jl](https://github.com/JuliaComputing/SQLiteGraph.jl), [XML.jl](https://github.com/joshday/XML.jl), and more as a part of various customer engagements.
 
 
 🏢 **Data Scientist II at Valassis Digital** ~~~<span class="jobdates">(Aug 2019 - Oct 2019)</span>~~~
