@@ -4,7 +4,7 @@
 
 # About Me
 
-My name is Josh.  I work on all things "technical computing", but my niche is the intersection of statistics and computer science.  I'm good at solving problems and then converting whiteboard math into efficient programs.  [Julia](https://julialang.org) is [my favoriate language](blog/2018-08-17-why-i-use-julia/).  During my PhD I researched online (a.k.a. streaming/single-pass) algorithms for statistics (see [**OnlineStats.jl**](https://github.com/joshday/OnlineStats.jl)).
+My name is Josh.  I work on all things "technical computing", but my niche is the intersection of statistics and computer science.  I'm good at solving problems and then converting whiteboard math into efficient programs.  [Julia](https://julialang.org) is [my favorite language](blog/2018-08-17-why-i-use-julia/).  During my PhD I researched online (a.k.a. streaming/single-pass) algorithms for statistics (see [**OnlineStats.jl**](https://github.com/joshday/OnlineStats.jl)).
 
 
 # Things I've Built
