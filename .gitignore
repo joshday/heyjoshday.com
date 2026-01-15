@@ -1,2 +1,7 @@
 __site
+_site
 *.DS_Store
+.claude
+
+/.quarto/
+**/*.quarto_ipynb

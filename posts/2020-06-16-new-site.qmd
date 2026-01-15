@@ -1,0 +1,12 @@
+---
+title: "New Website Built with Franklin.jl!"
+author: "Josh Day"
+date: "2020-06-16"
+categories: [Julia]
+---
+
+![](https://camo.githubusercontent.com/85517e47b497596f20eae9a49897d4de938976bd/68747470733a2f2f6672616e6b6c696e6a6c2e6f72672f6173736574732f696e6672612f6c6f676f46322e737667){width=20% fig-align="center"}
+
+[**Franklin**](https://github.com/tlienart/Franklin.jl) is a static site generator written in pure Julia. It's pretty neat and used in a lot of places, including the JuliaLang website: [https://julialang.org](https://julialang.org).
+
+It was easy to learn and fun to use Julia to build my site.

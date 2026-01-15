@@ -1,0 +1,12 @@
+---
+title: "One Click Tuner"
+author: "Josh Day"
+date: "2019-01-22"
+categories: [iOS, Apps]
+---
+
+This is a bit off topic for me, but I recently created an [iOS Tuner App](https://www.seqstat.com/tuner/) after not being satisfied with the other tuner apps out there (I play guitar).  It was an excuse to learn some swift/signal processing as well as design a new kind of tuner display that I think is a bit more insightful than the norm:
+
+![](https://user-images.githubusercontent.com/8075494/51088363-af62d300-172c-11e9-8f5d-591f30635e87.gif){fig-align="center" height="300px"}
+
+I've written a few more details about it at [the app's website](https://oneclicktuner.com).

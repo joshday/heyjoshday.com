@@ -1,0 +1,20 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Josh Day"
+  navbar:
+    left:
+      - index.qmd
+      - blog.qmd
+    right:
+      - icon: github
+        href: https://github.com/joshday
+      - icon: linkedin
+        href: https://www.linkedin.com/in/joshday/
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
