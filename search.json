@@ -4,7 +4,7 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "New Website Built with Franklin.jl!\n\n\n\nJulia\n\n\n\n\n\n\n\n\n\nJun 16, 2020\n\n\nJosh Day\n\n\n\n\n\n\n\n\n\n\n\n\nOne Click Tuner\n\n\n\niOS\n\nApps\n\n\n\n\n\n\n\n\n\nJan 22, 2019\n\n\nJosh Day\n\n\n\n\n\n\n\n\n\n\n\n\nChoosing a Learning Rate is Hard\n\n\n\nStatistics\n\nMachine Learning\n\n\n\n\n\n\n\n\n\nOct 16, 2018\n\n\nJosh Day\n\n\n\n\n\n\n\n\n\n\n\n\nWhy I Use Julia\n\n\n\nJulia\n\n\n\n\n\n\n\n\n\nAug 17, 2018\n\n\nJosh Day\n\n\n\n\n\n\n\n\n\n\n\n\nAdaGrad has a Learning Rate\n\n\n\nStatistics\n\nMachine Learning\n\n\n\n\n\n\n\n\n\nNov 28, 2017\n\n\nJosh Day\n\n\n\n\n\n\n\n\n\n\n\n\nJuliaML Basics\n\n\n\nJulia\n\n\n\n\n\n\n\n\n\nJul 12, 2017\n\n\nJosh Day\n\n\n\n\n\n\n\n\n\n\n\n\nMM Algorithms\n\n\n\nStatistics\n\n\n\n\n\n\n\n\n\nDec 24, 2016\n\n\nJosh Day\n\n\n\n\n\n\n\n\n\n\n\n\nGLMNet Tutorial\n\n\n\nR\n\n\n\n\n\n\n\n\n\nOct 2, 2015\n\n\nJosh Day\n\n\n\n\n\nNo matching items"
+    "text": "New Website built with Quarto!\n\n\n\nQuarto\n\nAI\n\n\n\n\n\n\n\n\n\nJan 15, 2025\n\n\nJosh Day\n\n\n\n\n\n\n\n\n\n\n\n\nNew Website Built with Franklin.jl!\n\n\n\nJulia\n\n\n\n\n\n\n\n\n\nJun 16, 2020\n\n\nJosh Day\n\n\n\n\n\n\n\n\n\n\n\n\nOne Click Tuner\n\n\n\niOS\n\nApps\n\n\n\n\n\n\n\n\n\nJan 22, 2019\n\n\nJosh Day\n\n\n\n\n\n\n\n\n\n\n\n\nChoosing a Learning Rate is Hard\n\n\n\nStatistics\n\nMachine Learning\n\n\n\n\n\n\n\n\n\nOct 16, 2018\n\n\nJosh Day\n\n\n\n\n\n\n\n\n\n\n\n\nWhy I Use Julia\n\n\n\nJulia\n\n\n\n\n\n\n\n\n\nAug 17, 2018\n\n\nJosh Day\n\n\n\n\n\n\n\n\n\n\n\n\nAdaGrad has a Learning Rate\n\n\n\nStatistics\n\nMachine Learning\n\n\n\n\n\n\n\n\n\nNov 28, 2017\n\n\nJosh Day\n\n\n\n\n\n\n\n\n\n\n\n\nJuliaML Basics\n\n\n\nJulia\n\n\n\n\n\n\n\n\n\nJul 12, 2017\n\n\nJosh Day\n\n\n\n\n\n\n\n\n\n\n\n\nMM Algorithms\n\n\n\nStatistics\n\n\n\n\n\n\n\n\n\nDec 24, 2016\n\n\nJosh Day\n\n\n\n\n\n\n\n\n\n\n\n\nGLMNet Tutorial\n\n\n\nR\n\n\n\n\n\n\n\n\n\nOct 2, 2015\n\n\nJosh Day\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/2015-10-02-glmnet-tutorial.html",
@@ -63,160 +63,6 @@
     "text": "Example: Logistic Regression\n\nMajorization\nOne technique for majorizing a convex function is a quadratic upper bound. If we can find a matrix \\(M\\) such that \\(M - d^2f(\\theta)\\) is nonnegative definite for all \\(\\theta\\), then\n\\[f(\\theta) \\le f(\\theta^{(t)}) + \\nabla f(\\theta^{(t)})^T(\\theta - \\theta^{(t)}) + \\frac{1}{2}(\\theta - \\theta^{(t)})^T M (\\theta - \\theta^{(t)}).\\]\nUsing the RHS as our majorization, updates take the form\n\\[\\theta^{(t+1)} = \\theta^{(t)} - M^{-1}\\nabla f(\\theta^{(t)}).\\]\nThis method produces an update rule that looks like Newton’s method, but uses an approximation of the Hessian which guarantees descent.\n\n\nLogistic Regression\nThe negative log-likelihood for the logistic regression model provides the components\n\\[\n\\begin{aligned}\n  f(\\beta) &= \\sum_i \\left\\{-y_i x_i^T\\beta + \\ln\\left[1 + \\exp(x_i^T\\beta)\\right]\\right\\} \\\\\n  \\nabla f(\\beta) &= \\sum_i -[y_i - \\hat{y_i}(\\beta)]x_i \\\\\n  d^2 f(\\beta) &= \\sum_i \\hat{y_i}(\\beta)[1 - \\hat{y_i}(\\beta)]x_i x_i^T\n\\end{aligned}\n\\]\nwhere each \\(x_i\\) is a vector of predictors, \\(y_i\\in\\{0, 1\\}\\) is the response, and \\(\\hat{y_i}(\\beta) = (1 + \\exp(-x_i^T\\beta))^{-1}\\). Continuing to create the majorization:\n\nIn matrix form, the Hessian is \\(d^2 f(\\beta) = X^TWX\\), where \\(W\\) is a diagonal matrix with entries \\(\\hat{y_i}(1 - \\hat{y_i})\\).\n\\(\\hat{y_i}\\) can only take values in (0, 1), so \\(\\frac{1}{4} \\ge \\hat{y_i}(1 - \\hat{y_i})\\).\nTherefore, we can use \\(M = X^TX/4\\) to create a quadratic upper bound. Compare this MM update to Newton’s method.\n\n\nMM Updates\n\\[\n\\beta^{(t+1)} = \\beta^{(t)} - 4\\left(X^TX\\right)^{-1}X^T(y - \\hat{y}(\\beta^{(t)}))\n\\]\n\n\nNewton Updates\n\\[\n\\beta^{(t+1)} = \\beta^{(t)} - \\left(X^TWX\\right)^{-1}X^T(y - \\hat{y}(\\beta^{(t)}))\n\\]\nIn this case, MM has the advantage of being able to reuse \\((X^TX)^{-1}\\) after it is computed once, whereas Newton’s method must solve a linear system at each iteration."
   },
   {
-    "objectID": "archive/index.html",
-    "href": "archive/index.html",
-    "title": "About Me",
-    "section": "",
-    "text": "@def title = “Josh Day | Home” @def tags = [“syntax”, “code”]\n\nAbout Me\nMy name is Josh. I work on all things “technical computing”, but my niche is the intersection of statistics and computer science. I’m good at solving problems and then converting whiteboard math into efficient programs. Julia is my favorite language. During my PhD I researched online (a.k.a. streaming/single-pass) algorithms for statistics (see OnlineStats.jl).\n\n\nThings I’ve Built\n\nProducts\n\nOne Click Tuner: Chromatic musical instrument tuner for iOS.\nTrendSpot: Keyword research tool.\n\n\n\nOpen Source\n\nOnlineStats: Single-pass algorithms for statistics.\nAverageShiftedHistograms: Kernel density estimation for big data.\nSparseRegression: Penalized (Ridge, LASSO, etc.) regression and classification models.\nMany more projects on GitHub.\n\n\n\nClosed Source\n\nWeb API for NLP (Natural language processing).\nWeb app and backend for time series analysis based on news article NLP (sentiment, entities) of various sources.\nFull stack development of web app for analyzing test flight data.\n\n\n\n\nEducation\n\n\n\nDegree\nYear\nInstitution\n\n\n\n\nPhD, Statistics\n2018\nNC State University\n\n\nMS, Statistics\n2014\nNC State\n\n\nBS, Math & Statistics\n2012\nWinona State University\n\n\nBA, Economics & Music\n2009\nWinona State University\n\n\n\n\n\nWork History\n🏢 Senior Research Scientist at Julia Computing ~(Oct 2017 - Current)~ - Led development team for several government R&D customers. - Developed open source packages PlotlyLight.jl, SQLiteGraph.jl, XML.jl, and more as a part of various customer engagements.\n🏢 Data Scientist II at Valassis Digital ~(Aug 2019 - Oct 2019)~ - Researched use cases for streaming data models in Ad Tech.\n🏢 Data Scientist Intern at MaxPoint ~(May 2015 - Aug 2015)~ - Developed on-line algorithms for advertising retargeting (logistic and survival models). - Fitted many Scikit-Learn models.\n🏢 Statistical Development Intern at SAS-JMP ~(May 2013 - May 2014, May 2015 - May 2016)~ - Researched methods being considered for JMP platforms (Bayesian and DOE). - Wrote test suites using JMP Scripting Language (JSL) for validating statistical results. - Led development of redesigning the JMP Starter.\n🏢 Statistics Consultant at Winona State University ~(Jan 2012 - Aug 2012)~ - Assisted students and faculty with experiment design, data analysis, and visualization.\n🏢 CRM Analytics Intern at Best Buy ~(May 2011 - Sep 2011)~ - Planned and analyzed A/B experiments using SAS and SQL.\n\n\nSelected Talks\nSlides and other materials available at https://github.com/joshday/Talks.\n\nUsing Julia on Large, Streaming Datasets: Julia Computing Webinar March 2020 (youtube)\nScalable Data Analysis with JuliaDB and OnlineStats: JuliaCon 2018 (youtube)\nSparseRegression.jl: Linear Models with Sparse Coefficients: JuliaCon 2017 (youtube)\nSorting Algorithms: NC State, ST 758: Statistical Computing (Fall 2017)\nOnline MM Algorithms for ML: International Chinese Statistical Association Conference 2016\nJulia for Modern Data Analysis: PyData Carolinas 2016\nOnlineStats.jl: Online Algorithms for Big and Streaming Data: JuliaCon 2016 (youtube)\nOverview of Stochastic Gradient Descent: NC State Statistical Learning Group (Fall 2015)\nIntro to Julia: NC State, ST 758: Statistical Computing (Fall 2015)\nIntro to R and RCpp: NC State, ST 790: Advanced Computing (Spring 2015)\nOnline Optimization: NC State, ST 790: Advanced Computing (Spring 2015)\nPenalized Methods: Ridge, Lasso, and Elastic Net: NC State Statistical Learning Group (Fall 2014)\n\n\n\nTeaching\nAll courses taught at NC State.\n\nST 312: Intro to Statistics II (Spring 2017, Spring 2015)\nST 311: Intro to Statistics I (Fall 2016, Fall 2014)\nST 350: Business Statistics (Fall 2012)\nMentor for Summer Institute in Biostatistics (Summer 2014)"
-  },
-  {
-    "objectID": "archive/blog/index.html",
-    "href": "archive/blog/index.html",
-    "title": "Blog",
-    "section": "",
-    "text": "@def title = “Josh Day | Blog” @def author = “Josh Day”\n\nBlog\n\\\n&lt;style&gt;\n.grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));\n  grid-gap: 1rem;\n}\n\n.grid &gt; h2, .grid &gt; p {\n  background: #f2f2f2;\n  padding: 0.5rem 0.5rem 1rem 0.5rem;\n  font-size: 0.9em;\n  line-height: 1.1rem;\n  border-radius: 5px;\n  text-align:left;\n}\n\n.grid &gt; p a {\n  display: block;\n  padding-bottom: 0.5em;\n}\n\n&lt;/style&gt;\n&lt;div class=\"grid\"&gt;\n{{blogposts}}\n&lt;/div&gt;"
-  },
-  {
-    "objectID": "archive/blog/2016-12-24-mm-algorithms.html",
-    "href": "archive/blog/2016-12-24-mm-algorithms.html",
-    "title": "MM Algorithms",
-    "section": "",
-    "text": "@def title = “MM Algorithms” @def author = “Josh Day”"
-  },
-  {
-    "objectID": "archive/blog/2016-12-24-mm-algorithms.html#definition",
-    "href": "archive/blog/2016-12-24-mm-algorithms.html#definition",
-    "title": "MM Algorithms",
-    "section": "Definition",
-    "text": "Definition\nMajorization-Minimization (MM) is an important concept in optimization. It is more of a principle than a specific algorithm, and many algorithms can be interpreted under the MM framework (coordinate descent, proximal gradient method, EM Algorithm, etc.). The main idea is the concept of a majorizing function.\nA Function \\(h(\\theta)\\) is said to majorize \\(f(\\theta)\\) at \\(\\theta^{(t)}\\) if\n\\[\n\\begin{aligned}\n  h(\\theta | \\theta^{(t)}) &\\ge f(\\theta | \\theta^{(t)}) \\quad\\text{(dominance condition)}, \\\\\n  h(\\theta^{(t)} | \\theta^{(t)}) &= f(\\theta^{(t)} | \\theta^{(t)}) \\quad\\text{(tangent condition)}.\n\\end{aligned}\n\\]\nSimply put, the surface of \\(h(\\theta)\\) lies above \\(f(\\theta)\\), apart from at \\(\\theta^{(t)}\\) where they are equal. An MM update consists of minimizing the majorization:\n\\[\\theta^{(t+1)} = \\text{argmin}_\\theta \\;h(\\theta|\\theta^{(t)}).\\]\nThings to note:\n\nMM updates are guaranteed to decrease the value of the objective function (descent property).\nMajorizations are often used to split parameters, allowing updates to be done element-wise."
-  },
-  {
-    "objectID": "archive/blog/2016-12-24-mm-algorithms.html#visualization",
-    "href": "archive/blog/2016-12-24-mm-algorithms.html#visualization",
-    "title": "MM Algorithms",
-    "section": "Visualization",
-    "text": "Visualization\n\nBlue: Objective\nGreen: Majorization\nRed: Parameter Estimate"
-  },
-  {
-    "objectID": "archive/blog/2016-12-24-mm-algorithms.html#example-logistic-regression",
-    "href": "archive/blog/2016-12-24-mm-algorithms.html#example-logistic-regression",
-    "title": "MM Algorithms",
-    "section": "Example: Logistic Regression",
-    "text": "Example: Logistic Regression\n\nMajorization\nOne technique for majorizing a convex function is a quadratic upper bound. If we can find a matrix \\(M\\) such that \\(M - d^2f(\\theta)\\) is nonnegative definite for all \\(\\theta\\), then\n\\[f(\\theta) \\le f(\\theta^{(t)}) + \\nabla f(\\theta^{(t)})^T(\\theta - \\theta^{(t)}) + \\frac{1}{2}(\\theta - \\theta^{(t)})^T M (\\theta - \\theta^{(t)}).\\]\nUsing the RHS as our majorization, updates take the form\n\\[\\theta^{(t+1)} = \\theta^{(t)} - M^{-1}\\nabla f(\\theta^{(t)}).\\]\nThis method produces an update rule that looks like Newton’s method, but uses an approximation of the Hessian which guarantees descent.\n\n\nLogistic Regression\nThe negative log-likelihood for the logistic regression model provides the components\n\\[\n\\begin{aligned}\n  f(\\beta) &= \\sum_i \\left\\{-y_i x_i^T\\beta + \\ln\\left[1 + \\exp(x_i^T\\beta)\\right]\\right\\} \\\\\n  \\nabla f(\\beta) &= \\sum_i -[y_i - \\hat{y_i}(\\beta)]x_i \\\\\n  d^2 f(\\beta) &= \\sum_i \\hat{y_i}(\\beta)[1 - \\hat{y_i}(\\beta)]x_i x_i^T\n\\end{aligned}\n\\]\nwhere each \\(x_i\\) is a vector of predictors, \\(y_i\\in\\{0, 1\\}\\) is the response, and \\(\\hat{y_i}(\\beta) = (1 + \\exp(-x_i^T\\beta))^{-1}\\). Continuing to create the majorization:\n\nIn matrix form, the Hessian is \\(d^2 f(\\beta) = X^TWX\\), where \\(W\\) is a diagonal matrix with entries \\(\\hat{y_i}(1 - \\hat{y_i})\\).\n\n\\(\\hat{y_i}\\) can only take values in (0, 1), so \\(\\frac{1}{4} \\ge \\hat{y_i}(1 - \\hat{y_i})\\).\n\nTherefore, we can use \\(M = X^TX/4\\) to create a quadratic upper bound. Compare this MM update to Newton’s method.\n\n\nMM Updates\n\\[\n\\beta^{(t+1)} = \\beta^{(t)} - 4\\left(X^TX\\right)^{-1}X^T(y - \\hat{y}(\\beta^{(t)}))\n\\]\n\n\nNewton Updates\n\\[\n\\beta^{(t+1)} = \\beta^{(t)} - \\left(X^TWX\\right)^{-1}X^T(y - \\hat{y}(\\beta^{(t)}))\n\\]\nIn this case, MM has the advantage of being able to reuse \\((X^TX)^{-1}\\) after it is computed once, whereas Newton’s method must solve a linear system at each iteration."
-  },
-  {
-    "objectID": "archive/blog/2015-10-02-glmnet-tutorial.html",
-    "href": "archive/blog/2015-10-02-glmnet-tutorial.html",
-    "title": "GLMNet Tutorial",
-    "section": "",
-    "text": "@def title = “GLMNet Tutorial” @def author = “Josh Day” @def tags = [“R”]\n\nGLMNet Tutorial\nRecently, a friend informed me that something I created for NC State’s Statistical Learning Group comes up on a google search for “glmnet tutorial”. In fall 2014, I gave an introduction to penalized regression, focusing on LASSO, Ridge, and Elastic Net.\nThe link that comes up is a tutorial on how to use R’s well known glmnet package. Besides giving examples of how to use glmnet, it runs through a three simulations where there is a clear winner between the three competitors.\nHere is the glmnet tutorial"
-  },
-  {
-    "objectID": "archive/blog/2020-06-16-new-site.html",
-    "href": "archive/blog/2020-06-16-new-site.html",
-    "title": "New Website Built with Franklin.jl!",
-    "section": "",
-    "text": "@def title = “New Website Built with Franklin.jl!” @def author = “Josh Day”\n\nNew Website Built with Franklin.jl!\n&lt;img src=\"https://camo.githubusercontent.com/85517e47b497596f20eae9a49897d4de938976bd/68747470733a2f2f6672616e6b6c696e6a6c2e6f72672f6173736574732f696e6672612f6c6f676f46322e737667\" style=\"width:20%; margin: auto\"&gt;\n&lt;br&gt;\nFranklin is a static site generator written in pure Julia. It’s pretty neat and used in a lot of places, including the JuliaLang website: https://julialang.org.\nIt was easy to learn and fun to use Julia to build my site."
-  },
-  {
-    "objectID": "archive/blog/2017-11-28-adagrad-has-learning-rate.html",
-    "href": "archive/blog/2017-11-28-adagrad-has-learning-rate.html",
-    "title": "AdaGrad has a Learning Rate",
-    "section": "",
-    "text": "@def title = “AdaGrad has a Learning Rate” @def author = “Josh Day”"
-  },
-  {
-    "objectID": "archive/blog/2017-11-28-adagrad-has-learning-rate.html#onlinestats",
-    "href": "archive/blog/2017-11-28-adagrad-has-learning-rate.html#onlinestats",
-    "title": "AdaGrad has a Learning Rate",
-    "section": "OnlineStats",
-    "text": "OnlineStats\nIn OnlineStats.jl, different weighting schemes can be plugged into any statistic or model (see docs on Weights). OnlineStats implements AdaGrad in the mean form, which opens up a variety of learning rates to try rather than just the default \\(\\gamma_t = \\frac{1}{\\sqrt{t}}\\). The plot below compares three different choices of learning rate. It’s interesting to note that the blue line, which uses the above default, is the slowest at finding the optimum loss value.\n\nTo try out OnlineStats.ADAGRAD, see StatLearn"
-  },
-  {
-    "objectID": "archive/config.html",
-    "href": "archive/config.html",
-    "title": "Add here files or directories that should be ignored by Franklin, otherwise",
-    "section": "",
-    "text": "+++ author = “Josh Day” mintoclevel = 2\n\nAdd here files or directories that should be ignored by Franklin, otherwise\n\n\nthese files might be copied and, if markdown, processed by Franklin which\n\n\nyou might not want. Indicate directories by ending the name with a /.\n\n\nBase files such as LICENSE.md and README.md are ignored by default.\nignore = [“node_modules/”]\n\n\nRSS (the website_{title, descr, url} must be defined to get RSS)\ngenerate_rss = true website_title = “Josh Day” website_descr = “Personal website of Josh Day” website_url = “https://heyjoshday.com”\nprepath = “” +++"
-  },
-  {
-    "objectID": "archive/404.html",
-    "href": "archive/404.html",
-    "title": "Josh Day",
-    "section": "",
-    "text": "@def title = “404”\n&lt;div style=\"margin-top: 40px; font-size: 40px; text-align: center;\"&gt;\n\n  &lt;br&gt;\n\n  &lt;div style=\"font-weight: bold;\"&gt;\n    404\n  &lt;/div&gt;\n\n  &lt;br&gt;\n  &lt;br&gt;\n\n    The requested page was not found\n\n  &lt;br&gt;\n  &lt;br&gt;\n  &lt;br&gt;\n  &lt;br&gt;\n\n  &lt;div style=\"margin-bottom: 300px; font-size: 24px\"&gt;\n    &lt;a href=\"/\"&gt;Click here&lt;/a&gt; to go back to the homepage.\n  &lt;/div&gt;\n\n&lt;/div&gt;"
-  },
-  {
-    "objectID": "archive/search.html",
-    "href": "archive/search.html",
-    "title": "Josh Day",
-    "section": "",
-    "text": "@def title = “Josh Day | search”"
-  },
-  {
-    "objectID": "archive/search.html#search",
-    "href": "archive/search.html#search",
-    "title": "Josh Day",
-    "section": "Search",
-    "text": "Search\nNumber of results found: ~~\n&lt;div id=\"searchResults\"&gt;&lt;/div&gt;"
-  },
-  {
-    "objectID": "archive/blog/2018-08-17-why-i-use-julia.html",
-    "href": "archive/blog/2018-08-17-why-i-use-julia.html",
-    "title": "Why I Use Julia",
-    "section": "",
-    "text": "@def title = “Why I use Julia” @def author = “Josh Day” @def tags = [“Julia”]"
-  },
-  {
-    "objectID": "archive/blog/2018-08-17-why-i-use-julia.html#multiple-dispatch-jit-dynamic-and-compiled",
-    "href": "archive/blog/2018-08-17-why-i-use-julia.html#multiple-dispatch-jit-dynamic-and-compiled",
-    "title": "Why I Use Julia",
-    "section": "Multiple Dispatch + JIT (Dynamic and Compiled)",
-    "text": "Multiple Dispatch + JIT (Dynamic and Compiled)\nWhen I am asked why I use Julia, my immediate response is “multiple dispatch”. Julia is well-known for performance, but that is only a part of what keeps me using it every day. Multiple dispatch is a feature where different code is called by a function depending on the types of the arguments. Combined with the JIT (Just-in-time compiler), Julia will automatically compile specialized code for each set of argument types the function is called with.\n\nSimple Example\nf(x) = x + x\nI have not given Julia any hint as to what the type of the argument is, but as long as it’s a type that supports addition, Julia will compile an optimized method for it. You can peek at the LLVM compiler code with the @code_llvm macro.\njulia&gt; @code_llvm f(1)\n\ndefine i64 @julia_f_62945(i64) #0 !dbg !5 {\ntop:\n  %1 = shl i64 %0, 1\n  ret i64 %1\n}\n\njulia&gt; @code_llvm f(1.0)\n\ndefine double @julia_f_62949(double) #0 !dbg !5 {\ntop:\n  %1 = fadd double %0, %0\n  ret double %1\n}\nIgnoring some of the details, notice that these functions do not call the same code: one method is specific to 64-bit integers and the other for double precision floats!\n\n\nWhat About More Complicated Types?\nHere we will use the Distributions package to implement a naive quantile finder using Newton’s Method:\n\\[\nx_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}\n\\]\nFor quantiles, we are trying to find the number x, for a given number q (between 0 and 1), such that\ncdf(dist, x) - q = 0\nwhere cdf is the cumulative distribution function for distribution dist. We also need the derivative of the cdf, which is the probability density function, or pdf.\nusing Distributions\n\nfunction myquantile(d, q)\n    out = mean(d)\n    for i in 1:10\n        out -= (cdf(d, out) - q) / pdf(d, out)\n    end\n    out\nend\nAgain, I have not told Julia anything about what d or q is, but when I provide arguments such as Distributions.Normal(0, 1) and 0.5, Julia will compile specialized code to run the algorithm and then return the median for a standard normal distribution (which is 0).\njulia&gt; myquantile(Normal(0,1), .5)\n0.0\nRight out of the box, myquantile will also work with other distributions! In fact, as long as the function arguments have methods for mean, cdf, and pdf, it will just work! If you were to implement this quantile algorithm in R, you would need to rewrite it for each distribution using the dnorm/pnorm family of functions.\njulia&gt; myquantile(Gamma(5,1), .7)\n5.890361313697006\n\njulia&gt; myquantile(Beta(2, 4), .1)\n0.11223495854585855"
-  },
-  {
-    "objectID": "archive/blog/2018-08-17-why-i-use-julia.html#takeaway",
-    "href": "archive/blog/2018-08-17-why-i-use-julia.html#takeaway",
-    "title": "Why I Use Julia",
-    "section": "Takeaway",
-    "text": "Takeaway\nThe language you use has a tremendous effect on how you approach problems (see linguistic relativity). I have a background in statistics, so naturally R was one of the first languages I learned. I don’t mean to bash R (language wars are boring) as it is a fantastic tool for data analysis, but I often find myself asking “how do I solve this without a for loop?” since loops are slow in R. In Julia, I have fewer performance obstacles, so my questions are more along the lines of “what are the methods I’m trying to accomplish this task with?”. If I can reduce a task to the operations that need to be performed, it becomes easy to write abstract yet performant code that works with any types I throw at it.\nMultiple dispatch has become invaluable to how I code, and with Julia you get it along with stellar performance. If you want to see how I use multiple dispatch to get a lot done with very little code, check out my package OnlineStats.jl for calculating statistics/models on data streams with single-pass algorithms.\nI hope you try Julia for yourself and have the same experience I had.\nCome for the speed. Stay for the productivity."
-  },
-  {
-    "objectID": "archive/blog/2022-09-09-expanding-histograms.html",
-    "href": "archive/blog/2022-09-09-expanding-histograms.html",
-    "title": "Expanding Histograms",
-    "section": "",
-    "text": "@def title = “Expanding Histograms” @def author = “Josh Day” @def tags = [“OnlineStats”, “”]\n\nExpanding Histograms"
-  },
-  {
-    "objectID": "archive/blog/2019-01-22-one-click-tuner.html",
-    "href": "archive/blog/2019-01-22-one-click-tuner.html",
-    "title": "One Click Tuner",
-    "section": "",
-    "text": "@def title = “One Click Tuner” @def author = “Josh Day”\n\nOne Click Tuner\nThis is a bit off topic for me, but I recently created an iOS Tuner App after not being satisfied with the other tuner apps out there (I play guitar). It was an excuse to learn some swift/signal processing as well as design a new kind of tuner display that I think is a bit more insightful than the norm:\n&lt;img src=\"https://user-images.githubusercontent.com/8075494/51088363-af62d300-172c-11e9-8f5d-591f30635e87.gif\" style=\"margin:auto; height: 300px; width: auto; border-radius: 15px; padding:0px;\"&gt;\n&lt;br&gt;\nI’ve written a few more details about it at the app’s website."
-  },
-  {
-    "objectID": "archive/blog/2018-10-16-learning-rates.html",
-    "href": "archive/blog/2018-10-16-learning-rates.html",
-    "title": "Choosing a Learning Rate is Hard",
-    "section": "",
-    "text": "@def title = “Choosing a Learning Rate is Hard” @def author = “Josh Day”"
-  },
-  {
-    "objectID": "archive/blog/2018-10-16-learning-rates.html#what-learning-rate-is-best",
-    "href": "archive/blog/2018-10-16-learning-rates.html#what-learning-rate-is-best",
-    "title": "Choosing a Learning Rate is Hard",
-    "section": "What Learning Rate is “Best”?",
-    "text": "What Learning Rate is “Best”?\nBelow is an animation of the linear regression loss value (\\(F(\\beta)\\)) for a changing learning rate parameter (from \\(.5\\) to \\(1\\)) for SGD and variety of variants that supposedly improve on SGD (hyperparameters chosen as recommended by the papers that introduced the algorithm). The y-axis is cut off at the loss evaluated at the OLS estimate, so that as the lines approach the bottom of the plot, the algorithm approaches the best solution.\n\nNote that you won’t find literature on OMAS, OMAP, and MSPI, as they are introduced in my dissertation (a paper or two is still in the works).\nIt is difficult to pick out a clear winner (except for maybe MSPI…) for a few reasons:\n\nThe methods are extremely dependent on the learning rate\nThe methods react to the learning rate in different ways\n\nThe takeaway is that we can’t make definitive statements about which method is best for even a straightforward model like linear regression, so be wary of bold claims about a given method’s superiority in deep learning. It seems to me that one should be very concerned with an algorithm’s “robustness” to the choice of learning rate, which is something that doesn’t get much attention in the SA literature."
-  },
-  {
-    "objectID": "archive/blog/2017-07-12-juliaml-basics.html",
-    "href": "archive/blog/2017-07-12-juliaml-basics.html",
-    "title": "JuliaML Basics",
-    "section": "",
-    "text": "@def title = “JuliaML Basics” @def author = “Josh Day” @def tags = [“Julia”]\n\nJuliaML Basics\n&lt;img src=\"https://avatars3.githubusercontent.com/u/15799035?v=3&s=200\" style=\"width: 20%; margin:auto; border-radius: 5px\"&gt;\nJuliaML is a GitHub organization dedicated to building tools for machine learning in Julia. This post serves as an introduction to some of the building blocks which JuliaML provides. The two packages I’ll discuss here are:\n\nLossFunctions.jl\nPenaltyFunctions.jl\n\nI’m assuming you have a little background in statistics/machine learning and an objective function such as\n\\[\\frac{1}{n}\\sum\\_{i=1}^n f\\_i(\\beta)+\\sum\\_{j=1}^p \\lambda\\_j J(\\beta\\_j)\\]\nis recognizable to you as a “loss” + “penalty”.\n\n\nLossFunctions.jl\nAn interface for dealing with loss functions. Internally, most losses are defined as distance-based (a function of \\(\\hat y-y\\)) or margin-based (a function of \\(y * \\hat y\\)) where \\(y\\) is the target and \\(\\hat y\\) is a predicted value.\n\nDistance-based losses\n #### Margin-based losses\n\n\n\nExample Usage\nusing LossFunctions\n\nl = L1DistLoss()\nvalue(l, .1, .2)  # |.2 - .1|\nderiv(l, .1, .2)  # sign(.2 - .1)\n\ny = randn(100)\nyhat = randn(100)\n\nvalue(l, y, yhat)  # vector of value mapped to y[i], yhat[i]\nvalue(l, y, yhat, AvgMode.Sum())  # sum(value(l, y, yhat)), but better\nvalue(l, y, yhat, AvgModel.Mean()) # mean(value(l, y, yhat)), but better\n\nNaive Gradient Descent Algorithm\nAssume we want to use a linear transformation so that our prediction of a vector \\(y\\) is \\(X\\beta\\).\nOur loss function looks like \\[\n    \\frac{1}{n}\\sum\\_{i=1}^n f(y\\_i, x\\_i^T\\beta),\n\\] with gradient \\[\n    X^T[\\frac{1}{n}\\sum_{i=1}^n f'(y\\_i, x\\_i^T\\beta)].\n\\]\nWe can implement a naive, inefficient gradient descent algorithm as:\nfunction f(l::Loss, x::Matrix, y::Vector; maxit=20, s=.5)\n    n, p = size(x)\n    β = zeros(p)\n    for i in 1:maxit\n        β -= (s / n) * x' * deriv(l, y, x * β)\n    end\n    β\nend\nThis automatically works with whatever loss function I provide because multiple dispatch is amazing:\n# make some fake data\nx = randn(1000, 3)\ny = x * [1.0, 2.0, 3.0] + randn(1000)\njulia&gt; f(L2DistLoss(), x, y)\n3-element Array{Float64,1}:\n 0.966367\n 2.05046\n 2.94227\n\njulia&gt; f(L1DistLoss(), x, y)\n3-element Array{Float64,1}:\n 1.00185\n 2.00302\n 2.95002\n\njulia&gt; f(HuberLoss(2.), x, y)\n3-element Array{Float64,1}:\n 0.967642\n 2.0485\n 2.94429\n\n\n\n\nPenaltyFunctions.jl\nAn interface for penalty/regularization functions. It follows similar conventions to LossFunctions.\n\nθ = rand(5)  # parameter vector\n\np = L1Penalty()\n\nvalue(p, θ)  # sum(abs, θ)\ngrad(p, θ)   # the gradient, sign.(θ)\nprox(p, θ, .1)  # proximal mapping (soft-thresholding) with step size .1\nLet’s change our gradient descent algorithm to proximal gradient method:\nfunction g(l::Loss, pen::Penalty, x::Matrix, y::Vector; maxit=20, s=.5, λ=.1)\n    n, p = size(x)\n    β = zeros(p)\n    for i in 1:maxit\n        β = prox(pen, β - (s / n) * x' * deriv(l, y, x * β), s * λ)\n    end\n    β\nend\nWe can now do proximal gradient method on arbitrary loss/penalty combinations because multiple dispatch is amazing:\njulia&gt; g(L2DistLoss(), L1Penalty(), x, y; λ = .4)\n3-element Array{Float64,1}:\n 0.789894\n 1.80736\n 2.81209\n\njulia&gt; g(L1DistLoss(), L1Penalty(), x, y; λ = .4)\n3-element Array{Float64,1}:\n 0.0\n 0.464488\n 1.5998\n\njulia&gt; g(HuberLoss(2.), L1Penalty(), x, y; λ = .4)\n3-element Array{Float64,1}:\n 0.525633\n 1.57115\n 2.57907\n\n\nTakeaway\nThese two packages create a consistent “grammar” for losses and regularization. Julia’s multiple dispatch then allows us to write general algorithms like the proximal gradient method example. This paves the way for machine learning experimentation that is unavailable in any other language that I know of."
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Home",
@@ -257,6 +103,167 @@
     "title": "Home",
     "section": "Teaching",
     "text": "Teaching\nAll courses taught at NC State.\n\nST 312: Intro to Statistics II (Spring 2017, Spring 2015)\nST 311: Intro to Statistics I (Fall 2016, Fall 2014)\nST 350: Business Statistics (Fall 2012)\nMentor for Summer Institute in Biostatistics (Summer 2014)"
+  },
+  {
+    "objectID": "archive/blog/2017-07-12-juliaml-basics.html",
+    "href": "archive/blog/2017-07-12-juliaml-basics.html",
+    "title": "JuliaML Basics",
+    "section": "",
+    "text": "@def title = “JuliaML Basics” @def author = “Josh Day” @def tags = [“Julia”]\n\nJuliaML Basics\n&lt;img src=\"https://avatars3.githubusercontent.com/u/15799035?v=3&s=200\" style=\"width: 20%; margin:auto; border-radius: 5px\"&gt;\nJuliaML is a GitHub organization dedicated to building tools for machine learning in Julia. This post serves as an introduction to some of the building blocks which JuliaML provides. The two packages I’ll discuss here are:\n\nLossFunctions.jl\nPenaltyFunctions.jl\n\nI’m assuming you have a little background in statistics/machine learning and an objective function such as\n\\[\\frac{1}{n}\\sum\\_{i=1}^n f\\_i(\\beta)+\\sum\\_{j=1}^p \\lambda\\_j J(\\beta\\_j)\\]\nis recognizable to you as a “loss” + “penalty”.\n\n\nLossFunctions.jl\nAn interface for dealing with loss functions. Internally, most losses are defined as distance-based (a function of \\(\\hat y-y\\)) or margin-based (a function of \\(y * \\hat y\\)) where \\(y\\) is the target and \\(\\hat y\\) is a predicted value.\n\nDistance-based losses\n #### Margin-based losses\n\n\n\nExample Usage\nusing LossFunctions\n\nl = L1DistLoss()\nvalue(l, .1, .2)  # |.2 - .1|\nderiv(l, .1, .2)  # sign(.2 - .1)\n\ny = randn(100)\nyhat = randn(100)\n\nvalue(l, y, yhat)  # vector of value mapped to y[i], yhat[i]\nvalue(l, y, yhat, AvgMode.Sum())  # sum(value(l, y, yhat)), but better\nvalue(l, y, yhat, AvgModel.Mean()) # mean(value(l, y, yhat)), but better\n\nNaive Gradient Descent Algorithm\nAssume we want to use a linear transformation so that our prediction of a vector \\(y\\) is \\(X\\beta\\).\nOur loss function looks like \\[\n    \\frac{1}{n}\\sum\\_{i=1}^n f(y\\_i, x\\_i^T\\beta),\n\\] with gradient \\[\n    X^T[\\frac{1}{n}\\sum_{i=1}^n f'(y\\_i, x\\_i^T\\beta)].\n\\]\nWe can implement a naive, inefficient gradient descent algorithm as:\nfunction f(l::Loss, x::Matrix, y::Vector; maxit=20, s=.5)\n    n, p = size(x)\n    β = zeros(p)\n    for i in 1:maxit\n        β -= (s / n) * x' * deriv(l, y, x * β)\n    end\n    β\nend\nThis automatically works with whatever loss function I provide because multiple dispatch is amazing:\n# make some fake data\nx = randn(1000, 3)\ny = x * [1.0, 2.0, 3.0] + randn(1000)\njulia&gt; f(L2DistLoss(), x, y)\n3-element Array{Float64,1}:\n 0.966367\n 2.05046\n 2.94227\n\njulia&gt; f(L1DistLoss(), x, y)\n3-element Array{Float64,1}:\n 1.00185\n 2.00302\n 2.95002\n\njulia&gt; f(HuberLoss(2.), x, y)\n3-element Array{Float64,1}:\n 0.967642\n 2.0485\n 2.94429\n\n\n\n\nPenaltyFunctions.jl\nAn interface for penalty/regularization functions. It follows similar conventions to LossFunctions.\n\nθ = rand(5)  # parameter vector\n\np = L1Penalty()\n\nvalue(p, θ)  # sum(abs, θ)\ngrad(p, θ)   # the gradient, sign.(θ)\nprox(p, θ, .1)  # proximal mapping (soft-thresholding) with step size .1\nLet’s change our gradient descent algorithm to proximal gradient method:\nfunction g(l::Loss, pen::Penalty, x::Matrix, y::Vector; maxit=20, s=.5, λ=.1)\n    n, p = size(x)\n    β = zeros(p)\n    for i in 1:maxit\n        β = prox(pen, β - (s / n) * x' * deriv(l, y, x * β), s * λ)\n    end\n    β\nend\nWe can now do proximal gradient method on arbitrary loss/penalty combinations because multiple dispatch is amazing:\njulia&gt; g(L2DistLoss(), L1Penalty(), x, y; λ = .4)\n3-element Array{Float64,1}:\n 0.789894\n 1.80736\n 2.81209\n\njulia&gt; g(L1DistLoss(), L1Penalty(), x, y; λ = .4)\n3-element Array{Float64,1}:\n 0.0\n 0.464488\n 1.5998\n\njulia&gt; g(HuberLoss(2.), L1Penalty(), x, y; λ = .4)\n3-element Array{Float64,1}:\n 0.525633\n 1.57115\n 2.57907\n\n\nTakeaway\nThese two packages create a consistent “grammar” for losses and regularization. Julia’s multiple dispatch then allows us to write general algorithms like the proximal gradient method example. This paves the way for machine learning experimentation that is unavailable in any other language that I know of."
+  },
+  {
+    "objectID": "archive/blog/2018-10-16-learning-rates.html",
+    "href": "archive/blog/2018-10-16-learning-rates.html",
+    "title": "Choosing a Learning Rate is Hard",
+    "section": "",
+    "text": "@def title = “Choosing a Learning Rate is Hard” @def author = “Josh Day”"
+  },
+  {
+    "objectID": "archive/blog/2018-10-16-learning-rates.html#what-learning-rate-is-best",
+    "href": "archive/blog/2018-10-16-learning-rates.html#what-learning-rate-is-best",
+    "title": "Choosing a Learning Rate is Hard",
+    "section": "What Learning Rate is “Best”?",
+    "text": "What Learning Rate is “Best”?\nBelow is an animation of the linear regression loss value (\\(F(\\beta)\\)) for a changing learning rate parameter (from \\(.5\\) to \\(1\\)) for SGD and variety of variants that supposedly improve on SGD (hyperparameters chosen as recommended by the papers that introduced the algorithm). The y-axis is cut off at the loss evaluated at the OLS estimate, so that as the lines approach the bottom of the plot, the algorithm approaches the best solution.\n\nNote that you won’t find literature on OMAS, OMAP, and MSPI, as they are introduced in my dissertation (a paper or two is still in the works).\nIt is difficult to pick out a clear winner (except for maybe MSPI…) for a few reasons:\n\nThe methods are extremely dependent on the learning rate\nThe methods react to the learning rate in different ways\n\nThe takeaway is that we can’t make definitive statements about which method is best for even a straightforward model like linear regression, so be wary of bold claims about a given method’s superiority in deep learning. It seems to me that one should be very concerned with an algorithm’s “robustness” to the choice of learning rate, which is something that doesn’t get much attention in the SA literature."
+  },
+  {
+    "objectID": "archive/blog/2019-01-22-one-click-tuner.html",
+    "href": "archive/blog/2019-01-22-one-click-tuner.html",
+    "title": "One Click Tuner",
+    "section": "",
+    "text": "@def title = “One Click Tuner” @def author = “Josh Day”\n\nOne Click Tuner\nThis is a bit off topic for me, but I recently created an iOS Tuner App after not being satisfied with the other tuner apps out there (I play guitar). It was an excuse to learn some swift/signal processing as well as design a new kind of tuner display that I think is a bit more insightful than the norm:\n&lt;img src=\"https://user-images.githubusercontent.com/8075494/51088363-af62d300-172c-11e9-8f5d-591f30635e87.gif\" style=\"margin:auto; height: 300px; width: auto; border-radius: 15px; padding:0px;\"&gt;\n&lt;br&gt;\nI’ve written a few more details about it at the app’s website."
+  },
+  {
+    "objectID": "archive/blog/2022-09-09-expanding-histograms.html",
+    "href": "archive/blog/2022-09-09-expanding-histograms.html",
+    "title": "Expanding Histograms",
+    "section": "",
+    "text": "@def title = “Expanding Histograms” @def author = “Josh Day” @def tags = [“OnlineStats”, “”]\n\nExpanding Histograms"
+  },
+  {
+    "objectID": "archive/blog/2018-08-17-why-i-use-julia.html",
+    "href": "archive/blog/2018-08-17-why-i-use-julia.html",
+    "title": "Why I Use Julia",
+    "section": "",
+    "text": "@def title = “Why I use Julia” @def author = “Josh Day” @def tags = [“Julia”]"
+  },
+  {
+    "objectID": "archive/blog/2018-08-17-why-i-use-julia.html#multiple-dispatch-jit-dynamic-and-compiled",
+    "href": "archive/blog/2018-08-17-why-i-use-julia.html#multiple-dispatch-jit-dynamic-and-compiled",
+    "title": "Why I Use Julia",
+    "section": "Multiple Dispatch + JIT (Dynamic and Compiled)",
+    "text": "Multiple Dispatch + JIT (Dynamic and Compiled)\nWhen I am asked why I use Julia, my immediate response is “multiple dispatch”. Julia is well-known for performance, but that is only a part of what keeps me using it every day. Multiple dispatch is a feature where different code is called by a function depending on the types of the arguments. Combined with the JIT (Just-in-time compiler), Julia will automatically compile specialized code for each set of argument types the function is called with.\n\nSimple Example\nf(x) = x + x\nI have not given Julia any hint as to what the type of the argument is, but as long as it’s a type that supports addition, Julia will compile an optimized method for it. You can peek at the LLVM compiler code with the @code_llvm macro.\njulia&gt; @code_llvm f(1)\n\ndefine i64 @julia_f_62945(i64) #0 !dbg !5 {\ntop:\n  %1 = shl i64 %0, 1\n  ret i64 %1\n}\n\njulia&gt; @code_llvm f(1.0)\n\ndefine double @julia_f_62949(double) #0 !dbg !5 {\ntop:\n  %1 = fadd double %0, %0\n  ret double %1\n}\nIgnoring some of the details, notice that these functions do not call the same code: one method is specific to 64-bit integers and the other for double precision floats!\n\n\nWhat About More Complicated Types?\nHere we will use the Distributions package to implement a naive quantile finder using Newton’s Method:\n\\[\nx_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}\n\\]\nFor quantiles, we are trying to find the number x, for a given number q (between 0 and 1), such that\ncdf(dist, x) - q = 0\nwhere cdf is the cumulative distribution function for distribution dist. We also need the derivative of the cdf, which is the probability density function, or pdf.\nusing Distributions\n\nfunction myquantile(d, q)\n    out = mean(d)\n    for i in 1:10\n        out -= (cdf(d, out) - q) / pdf(d, out)\n    end\n    out\nend\nAgain, I have not told Julia anything about what d or q is, but when I provide arguments such as Distributions.Normal(0, 1) and 0.5, Julia will compile specialized code to run the algorithm and then return the median for a standard normal distribution (which is 0).\njulia&gt; myquantile(Normal(0,1), .5)\n0.0\nRight out of the box, myquantile will also work with other distributions! In fact, as long as the function arguments have methods for mean, cdf, and pdf, it will just work! If you were to implement this quantile algorithm in R, you would need to rewrite it for each distribution using the dnorm/pnorm family of functions.\njulia&gt; myquantile(Gamma(5,1), .7)\n5.890361313697006\n\njulia&gt; myquantile(Beta(2, 4), .1)\n0.11223495854585855"
+  },
+  {
+    "objectID": "archive/blog/2018-08-17-why-i-use-julia.html#takeaway",
+    "href": "archive/blog/2018-08-17-why-i-use-julia.html#takeaway",
+    "title": "Why I Use Julia",
+    "section": "Takeaway",
+    "text": "Takeaway\nThe language you use has a tremendous effect on how you approach problems (see linguistic relativity). I have a background in statistics, so naturally R was one of the first languages I learned. I don’t mean to bash R (language wars are boring) as it is a fantastic tool for data analysis, but I often find myself asking “how do I solve this without a for loop?” since loops are slow in R. In Julia, I have fewer performance obstacles, so my questions are more along the lines of “what are the methods I’m trying to accomplish this task with?”. If I can reduce a task to the operations that need to be performed, it becomes easy to write abstract yet performant code that works with any types I throw at it.\nMultiple dispatch has become invaluable to how I code, and with Julia you get it along with stellar performance. If you want to see how I use multiple dispatch to get a lot done with very little code, check out my package OnlineStats.jl for calculating statistics/models on data streams with single-pass algorithms.\nI hope you try Julia for yourself and have the same experience I had.\nCome for the speed. Stay for the productivity."
+  },
+  {
+    "objectID": "archive/search.html",
+    "href": "archive/search.html",
+    "title": "Josh Day",
+    "section": "",
+    "text": "@def title = “Josh Day | search”"
+  },
+  {
+    "objectID": "archive/search.html#search",
+    "href": "archive/search.html#search",
+    "title": "Josh Day",
+    "section": "Search",
+    "text": "Search\nNumber of results found: ~~\n&lt;div id=\"searchResults\"&gt;&lt;/div&gt;"
+  },
+  {
+    "objectID": "archive/404.html",
+    "href": "archive/404.html",
+    "title": "Josh Day",
+    "section": "",
+    "text": "@def title = “404”\n&lt;div style=\"margin-top: 40px; font-size: 40px; text-align: center;\"&gt;\n\n  &lt;br&gt;\n\n  &lt;div style=\"font-weight: bold;\"&gt;\n    404\n  &lt;/div&gt;\n\n  &lt;br&gt;\n  &lt;br&gt;\n\n    The requested page was not found\n\n  &lt;br&gt;\n  &lt;br&gt;\n  &lt;br&gt;\n  &lt;br&gt;\n\n  &lt;div style=\"margin-bottom: 300px; font-size: 24px\"&gt;\n    &lt;a href=\"/\"&gt;Click here&lt;/a&gt; to go back to the homepage.\n  &lt;/div&gt;\n\n&lt;/div&gt;"
+  },
+  {
+    "objectID": "archive/config.html",
+    "href": "archive/config.html",
+    "title": "Add here files or directories that should be ignored by Franklin, otherwise",
+    "section": "",
+    "text": "+++ author = “Josh Day” mintoclevel = 2\n\nAdd here files or directories that should be ignored by Franklin, otherwise\n\n\nthese files might be copied and, if markdown, processed by Franklin which\n\n\nyou might not want. Indicate directories by ending the name with a /.\n\n\nBase files such as LICENSE.md and README.md are ignored by default.\nignore = [“node_modules/”]\n\n\nRSS (the website_{title, descr, url} must be defined to get RSS)\ngenerate_rss = true website_title = “Josh Day” website_descr = “Personal website of Josh Day” website_url = “https://heyjoshday.com”\nprepath = “” +++"
+  },
+  {
+    "objectID": "archive/blog/2017-11-28-adagrad-has-learning-rate.html",
+    "href": "archive/blog/2017-11-28-adagrad-has-learning-rate.html",
+    "title": "AdaGrad has a Learning Rate",
+    "section": "",
+    "text": "@def title = “AdaGrad has a Learning Rate” @def author = “Josh Day”"
+  },
+  {
+    "objectID": "archive/blog/2017-11-28-adagrad-has-learning-rate.html#onlinestats",
+    "href": "archive/blog/2017-11-28-adagrad-has-learning-rate.html#onlinestats",
+    "title": "AdaGrad has a Learning Rate",
+    "section": "OnlineStats",
+    "text": "OnlineStats\nIn OnlineStats.jl, different weighting schemes can be plugged into any statistic or model (see docs on Weights). OnlineStats implements AdaGrad in the mean form, which opens up a variety of learning rates to try rather than just the default \\(\\gamma_t = \\frac{1}{\\sqrt{t}}\\). The plot below compares three different choices of learning rate. It’s interesting to note that the blue line, which uses the above default, is the slowest at finding the optimum loss value.\n\nTo try out OnlineStats.ADAGRAD, see StatLearn"
+  },
+  {
+    "objectID": "archive/blog/2020-06-16-new-site.html",
+    "href": "archive/blog/2020-06-16-new-site.html",
+    "title": "New Website Built with Franklin.jl!",
+    "section": "",
+    "text": "@def title = “New Website Built with Franklin.jl!” @def author = “Josh Day”\n\nNew Website Built with Franklin.jl!\n&lt;img src=\"https://camo.githubusercontent.com/85517e47b497596f20eae9a49897d4de938976bd/68747470733a2f2f6672616e6b6c696e6a6c2e6f72672f6173736574732f696e6672612f6c6f676f46322e737667\" style=\"width:20%; margin: auto\"&gt;\n&lt;br&gt;\nFranklin is a static site generator written in pure Julia. It’s pretty neat and used in a lot of places, including the JuliaLang website: https://julialang.org.\nIt was easy to learn and fun to use Julia to build my site."
+  },
+  {
+    "objectID": "archive/blog/2015-10-02-glmnet-tutorial.html",
+    "href": "archive/blog/2015-10-02-glmnet-tutorial.html",
+    "title": "GLMNet Tutorial",
+    "section": "",
+    "text": "@def title = “GLMNet Tutorial” @def author = “Josh Day” @def tags = [“R”]\n\nGLMNet Tutorial\nRecently, a friend informed me that something I created for NC State’s Statistical Learning Group comes up on a google search for “glmnet tutorial”. In fall 2014, I gave an introduction to penalized regression, focusing on LASSO, Ridge, and Elastic Net.\nThe link that comes up is a tutorial on how to use R’s well known glmnet package. Besides giving examples of how to use glmnet, it runs through a three simulations where there is a clear winner between the three competitors.\nHere is the glmnet tutorial"
+  },
+  {
+    "objectID": "archive/blog/2016-12-24-mm-algorithms.html",
+    "href": "archive/blog/2016-12-24-mm-algorithms.html",
+    "title": "MM Algorithms",
+    "section": "",
+    "text": "@def title = “MM Algorithms” @def author = “Josh Day”"
+  },
+  {
+    "objectID": "archive/blog/2016-12-24-mm-algorithms.html#definition",
+    "href": "archive/blog/2016-12-24-mm-algorithms.html#definition",
+    "title": "MM Algorithms",
+    "section": "Definition",
+    "text": "Definition\nMajorization-Minimization (MM) is an important concept in optimization. It is more of a principle than a specific algorithm, and many algorithms can be interpreted under the MM framework (coordinate descent, proximal gradient method, EM Algorithm, etc.). The main idea is the concept of a majorizing function.\nA Function \\(h(\\theta)\\) is said to majorize \\(f(\\theta)\\) at \\(\\theta^{(t)}\\) if\n\\[\n\\begin{aligned}\n  h(\\theta | \\theta^{(t)}) &\\ge f(\\theta | \\theta^{(t)}) \\quad\\text{(dominance condition)}, \\\\\n  h(\\theta^{(t)} | \\theta^{(t)}) &= f(\\theta^{(t)} | \\theta^{(t)}) \\quad\\text{(tangent condition)}.\n\\end{aligned}\n\\]\nSimply put, the surface of \\(h(\\theta)\\) lies above \\(f(\\theta)\\), apart from at \\(\\theta^{(t)}\\) where they are equal. An MM update consists of minimizing the majorization:\n\\[\\theta^{(t+1)} = \\text{argmin}_\\theta \\;h(\\theta|\\theta^{(t)}).\\]\nThings to note:\n\nMM updates are guaranteed to decrease the value of the objective function (descent property).\nMajorizations are often used to split parameters, allowing updates to be done element-wise."
+  },
+  {
+    "objectID": "archive/blog/2016-12-24-mm-algorithms.html#visualization",
+    "href": "archive/blog/2016-12-24-mm-algorithms.html#visualization",
+    "title": "MM Algorithms",
+    "section": "Visualization",
+    "text": "Visualization\n\nBlue: Objective\nGreen: Majorization\nRed: Parameter Estimate"
+  },
+  {
+    "objectID": "archive/blog/2016-12-24-mm-algorithms.html#example-logistic-regression",
+    "href": "archive/blog/2016-12-24-mm-algorithms.html#example-logistic-regression",
+    "title": "MM Algorithms",
+    "section": "Example: Logistic Regression",
+    "text": "Example: Logistic Regression\n\nMajorization\nOne technique for majorizing a convex function is a quadratic upper bound. If we can find a matrix \\(M\\) such that \\(M - d^2f(\\theta)\\) is nonnegative definite for all \\(\\theta\\), then\n\\[f(\\theta) \\le f(\\theta^{(t)}) + \\nabla f(\\theta^{(t)})^T(\\theta - \\theta^{(t)}) + \\frac{1}{2}(\\theta - \\theta^{(t)})^T M (\\theta - \\theta^{(t)}).\\]\nUsing the RHS as our majorization, updates take the form\n\\[\\theta^{(t+1)} = \\theta^{(t)} - M^{-1}\\nabla f(\\theta^{(t)}).\\]\nThis method produces an update rule that looks like Newton’s method, but uses an approximation of the Hessian which guarantees descent.\n\n\nLogistic Regression\nThe negative log-likelihood for the logistic regression model provides the components\n\\[\n\\begin{aligned}\n  f(\\beta) &= \\sum_i \\left\\{-y_i x_i^T\\beta + \\ln\\left[1 + \\exp(x_i^T\\beta)\\right]\\right\\} \\\\\n  \\nabla f(\\beta) &= \\sum_i -[y_i - \\hat{y_i}(\\beta)]x_i \\\\\n  d^2 f(\\beta) &= \\sum_i \\hat{y_i}(\\beta)[1 - \\hat{y_i}(\\beta)]x_i x_i^T\n\\end{aligned}\n\\]\nwhere each \\(x_i\\) is a vector of predictors, \\(y_i\\in\\{0, 1\\}\\) is the response, and \\(\\hat{y_i}(\\beta) = (1 + \\exp(-x_i^T\\beta))^{-1}\\). Continuing to create the majorization:\n\nIn matrix form, the Hessian is \\(d^2 f(\\beta) = X^TWX\\), where \\(W\\) is a diagonal matrix with entries \\(\\hat{y_i}(1 - \\hat{y_i})\\).\n\n\\(\\hat{y_i}\\) can only take values in (0, 1), so \\(\\frac{1}{4} \\ge \\hat{y_i}(1 - \\hat{y_i})\\).\n\nTherefore, we can use \\(M = X^TX/4\\) to create a quadratic upper bound. Compare this MM update to Newton’s method.\n\n\nMM Updates\n\\[\n\\beta^{(t+1)} = \\beta^{(t)} - 4\\left(X^TX\\right)^{-1}X^T(y - \\hat{y}(\\beta^{(t)}))\n\\]\n\n\nNewton Updates\n\\[\n\\beta^{(t+1)} = \\beta^{(t)} - \\left(X^TWX\\right)^{-1}X^T(y - \\hat{y}(\\beta^{(t)}))\n\\]\nIn this case, MM has the advantage of being able to reuse \\((X^TX)^{-1}\\) after it is computed once, whereas Newton’s method must solve a linear system at each iteration."
+  },
+  {
+    "objectID": "archive/blog/index.html",
+    "href": "archive/blog/index.html",
+    "title": "Blog",
+    "section": "",
+    "text": "@def title = “Josh Day | Blog” @def author = “Josh Day”\n\nBlog\n\\\n&lt;style&gt;\n.grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));\n  grid-gap: 1rem;\n}\n\n.grid &gt; h2, .grid &gt; p {\n  background: #f2f2f2;\n  padding: 0.5rem 0.5rem 1rem 0.5rem;\n  font-size: 0.9em;\n  line-height: 1.1rem;\n  border-radius: 5px;\n  text-align:left;\n}\n\n.grid &gt; p a {\n  display: block;\n  padding-bottom: 0.5em;\n}\n\n&lt;/style&gt;\n&lt;div class=\"grid\"&gt;\n{{blogposts}}\n&lt;/div&gt;"
+  },
+  {
+    "objectID": "archive/index.html",
+    "href": "archive/index.html",
+    "title": "About Me",
+    "section": "",
+    "text": "@def title = “Josh Day | Home” @def tags = [“syntax”, “code”]\n\nAbout Me\nMy name is Josh. I work on all things “technical computing”, but my niche is the intersection of statistics and computer science. I’m good at solving problems and then converting whiteboard math into efficient programs. Julia is my favorite language. During my PhD I researched online (a.k.a. streaming/single-pass) algorithms for statistics (see OnlineStats.jl).\n\n\nThings I’ve Built\n\nProducts\n\nOne Click Tuner: Chromatic musical instrument tuner for iOS.\nTrendSpot: Keyword research tool.\n\n\n\nOpen Source\n\nOnlineStats: Single-pass algorithms for statistics.\nAverageShiftedHistograms: Kernel density estimation for big data.\nSparseRegression: Penalized (Ridge, LASSO, etc.) regression and classification models.\nMany more projects on GitHub.\n\n\n\nClosed Source\n\nWeb API for NLP (Natural language processing).\nWeb app and backend for time series analysis based on news article NLP (sentiment, entities) of various sources.\nFull stack development of web app for analyzing test flight data.\n\n\n\n\nEducation\n\n\n\nDegree\nYear\nInstitution\n\n\n\n\nPhD, Statistics\n2018\nNC State University\n\n\nMS, Statistics\n2014\nNC State\n\n\nBS, Math & Statistics\n2012\nWinona State University\n\n\nBA, Economics & Music\n2009\nWinona State University\n\n\n\n\n\nWork History\n🏢 Senior Research Scientist at Julia Computing ~(Oct 2017 - Current)~ - Led development team for several government R&D customers. - Developed open source packages PlotlyLight.jl, SQLiteGraph.jl, XML.jl, and more as a part of various customer engagements.\n🏢 Data Scientist II at Valassis Digital ~(Aug 2019 - Oct 2019)~ - Researched use cases for streaming data models in Ad Tech.\n🏢 Data Scientist Intern at MaxPoint ~(May 2015 - Aug 2015)~ - Developed on-line algorithms for advertising retargeting (logistic and survival models). - Fitted many Scikit-Learn models.\n🏢 Statistical Development Intern at SAS-JMP ~(May 2013 - May 2014, May 2015 - May 2016)~ - Researched methods being considered for JMP platforms (Bayesian and DOE). - Wrote test suites using JMP Scripting Language (JSL) for validating statistical results. - Led development of redesigning the JMP Starter.\n🏢 Statistics Consultant at Winona State University ~(Jan 2012 - Aug 2012)~ - Assisted students and faculty with experiment design, data analysis, and visualization.\n🏢 CRM Analytics Intern at Best Buy ~(May 2011 - Sep 2011)~ - Planned and analyzed A/B experiments using SAS and SQL.\n\n\nSelected Talks\nSlides and other materials available at https://github.com/joshday/Talks.\n\nUsing Julia on Large, Streaming Datasets: Julia Computing Webinar March 2020 (youtube)\nScalable Data Analysis with JuliaDB and OnlineStats: JuliaCon 2018 (youtube)\nSparseRegression.jl: Linear Models with Sparse Coefficients: JuliaCon 2017 (youtube)\nSorting Algorithms: NC State, ST 758: Statistical Computing (Fall 2017)\nOnline MM Algorithms for ML: International Chinese Statistical Association Conference 2016\nJulia for Modern Data Analysis: PyData Carolinas 2016\nOnlineStats.jl: Online Algorithms for Big and Streaming Data: JuliaCon 2016 (youtube)\nOverview of Stochastic Gradient Descent: NC State Statistical Learning Group (Fall 2015)\nIntro to Julia: NC State, ST 758: Statistical Computing (Fall 2015)\nIntro to R and RCpp: NC State, ST 790: Advanced Computing (Spring 2015)\nOnline Optimization: NC State, ST 790: Advanced Computing (Spring 2015)\nPenalized Methods: Ridge, Lasso, and Elastic Net: NC State Statistical Learning Group (Fall 2014)\n\n\n\nTeaching\nAll courses taught at NC State.\n\nST 312: Intro to Statistics II (Spring 2017, Spring 2015)\nST 311: Intro to Statistics I (Fall 2016, Fall 2014)\nST 350: Business Statistics (Fall 2012)\nMentor for Summer Institute in Biostatistics (Summer 2014)"
+  },
+  {
+    "objectID": "posts/2025-01-15-new-site-quarto-claude.html",
+    "href": "posts/2025-01-15-new-site-quarto-claude.html",
+    "title": "New Website built with Quarto!",
+    "section": "",
+    "text": "I recently rebuilt my personal website using Quarto, mostly via Claude Code. The previous version was built with Franklin.jl, a (really cool) static site generator written in Julia. I’m still kicking the tires on AI-centric development workflows and this was a good exercise.\nQuarto covers so many use cases I’ve decided to invest in it as a medium. This way, when I’m generating a report/website/etc., I’ll have some knowledge about the format."
   },
   {
     "objectID": "posts/2018-08-17-why-i-use-julia.html",
