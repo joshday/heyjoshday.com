@@ -65,44 +65,30 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Home",
+    "title": "Things I’ve Built",
     "section": "",
-    "text": "My name is Josh. I work on all things “technical computing”, but my niche is the intersection of statistics and computer science. I’m good at solving problems and then converting whiteboard math into efficient programs. Julia is my favorite language. During my PhD I researched online (a.k.a. streaming/single-pass) algorithms for statistics (see OnlineStats.jl)."
+    "text": "My name is Josh. I work on all things scientific/technical computing, but my niche is the intersection of statistics and computer science. I’m good at solving problems and then converting whiteboard math into efficient programs. Julia is my favorite language. During my PhD I researched online (a.k.a. streaming or single-pass) algorithms for statistics (see OnlineStats.jl). I spent 8 years at JuliaHub working primarily on large government-funded projects (Air Force, DARPA, In-Q-Tel, etc.). In November 2025 I became the Director of Software Engineering at Rallypoint One where I am the PI for a variety of (mostly) federally funded programs (Navy SBIR, NSF)."
   },
   {
-    "objectID": "index.html#things-ive-built",
-    "href": "index.html#things-ive-built",
-    "title": "Home",
-    "section": "Things I’ve Built",
-    "text": "Things I’ve Built\n\nProducts\n\nOne Click Tuner: Chromatic musical instrument tuner for iOS.\nTrendSpot: Keyword research tool.\n\n\n\nOpen Source\n\nOnlineStats: Single-pass algorithms for statistics.\nAverageShiftedHistograms: Kernel density estimation for big data.\nSparseRegression: Penalized (Ridge, LASSO, etc.) regression and classification models.\nMany more projects on GitHub.\n\n\n\nClosed Source\n\nWeb API for NLP (Natural language processing).\nWeb app and backend for time series analysis based on news article NLP (sentiment, entities) of various sources.\nFull stack development of web app for analyzing test flight data."
+    "objectID": "index.html#products",
+    "href": "index.html#products",
+    "title": "Things I’ve Built",
+    "section": "Products",
+    "text": "Products\n\nOne Click Tuner: Chromatic musical instrument tuner for iOS.\nTrendSpot: Keyword research tool."
   },
   {
-    "objectID": "index.html#education",
-    "href": "index.html#education",
-    "title": "Home",
-    "section": "Education",
-    "text": "Education\n\n\n\nDegree\nYear\nInstitution\n\n\n\n\nPhD, Statistics\n2018\nNC State University\n\n\nMS, Statistics\n2014\nNC State\n\n\nBS, Math & Statistics\n2012\nWinona State University\n\n\nBA, Economics & Music\n2009\nWinona State University"
+    "objectID": "index.html#open-source",
+    "href": "index.html#open-source",
+    "title": "Things I’ve Built",
+    "section": "Open Source",
+    "text": "Open Source\nAll created in the time before AI assistants.\n\n\n\nPackage\nDescription\nStars\n\n\n\n\nOnlineStats\nSingle-pass algorithms for statistics\n\n\n\nPlotlyLight\nLightweight Plotly.js interface for Julia\n\n\n\nXML\nFast XML parser for Julia\n\n\n\nAverageShiftedHistograms\nKernel density estimation for big data\n\n\n\nCobweb\nHTML templating and components for Julia\n\n\n\nXKCD\nFetch XKCD comics from Julia\n\n\n\nSparseRegression\nPenalized (Ridge, LASSO, etc.) regression\n\n\n\n\nMany more projects on GitHub."
   },
   {
-    "objectID": "index.html#work-history",
-    "href": "index.html#work-history",
-    "title": "Home",
-    "section": "Work History",
-    "text": "Work History\nDirector of Software Engineering at Rallypoint One (Oct 2025 - Current)\n\nPI for federally funded programs (NSF, ONR)\n\nSenior Research Scientist at Julia Computing (Oct 2017 - Oct 2025)\n\nLed development team for several government R&D customers.\nDeveloped open source packages PlotlyLight.jl, SQLiteGraph.jl, XML.jl, and more as a part of various customer engagements.\n\nData Scientist II at Valassis Digital (Aug 2019 - Oct 2019)\n\nResearched use cases for streaming data models in Ad Tech.\n\nData Scientist Intern at MaxPoint (May 2015 - Aug 2015)\n\nDeveloped on-line algorithms for advertising retargeting (logistic and survival models).\nFitted many Scikit-Learn models.\n\nStatistical Development Intern at SAS-JMP (May 2013 - May 2014, May 2015 - May 2016)\n\nResearched methods being considered for JMP platforms (Bayesian and DOE).\nWrote test suites using JMP Scripting Language (JSL) for validating statistical results.\nLed development of redesigning the JMP Starter.\n\nStatistics Consultant at Winona State University (Jan 2012 - Aug 2012)\n\nAssisted students and faculty with experiment design, data analysis, and visualization.\n\nCRM Analytics Intern at Best Buy (May 2011 - Sep 2011)\n\nPlanned and analyzed A/B experiments using SAS and SQL."
-  },
-  {
-    "objectID": "index.html#selected-talks",
-    "href": "index.html#selected-talks",
-    "title": "Home",
-    "section": "Selected Talks",
-    "text": "Selected Talks\nSlides and other materials available at https://github.com/joshday/Talks.\n\nUsing Julia on Large, Streaming Datasets: Julia Computing Webinar March 2020 (youtube)\nScalable Data Analysis with JuliaDB and OnlineStats: JuliaCon 2018 (youtube)\nSparseRegression.jl: Linear Models with Sparse Coefficients: JuliaCon 2017 (youtube)\nSorting Algorithms: NC State, ST 758: Statistical Computing (Fall 2017)\nOnline MM Algorithms for ML: International Chinese Statistical Association Conference 2016\nJulia for Modern Data Analysis: PyData Carolinas 2016\nOnlineStats.jl: Online Algorithms for Big and Streaming Data: JuliaCon 2016 (youtube)\nOverview of Stochastic Gradient Descent: NC State Statistical Learning Group (Fall 2015)\nIntro to Julia: NC State, ST 758: Statistical Computing (Fall 2015)\nIntro to R and RCpp: NC State, ST 790: Advanced Computing (Spring 2015)\nOnline Optimization: NC State, ST 790: Advanced Computing (Spring 2015)\nPenalized Methods: Ridge, Lasso, and Elastic Net: NC State Statistical Learning Group (Fall 2014)"
-  },
-  {
-    "objectID": "index.html#teaching",
-    "href": "index.html#teaching",
-    "title": "Home",
-    "section": "Teaching",
-    "text": "Teaching\nAll courses taught at NC State.\n\nST 312: Intro to Statistics II (Spring 2017, Spring 2015)\nST 311: Intro to Statistics I (Fall 2016, Fall 2014)\nST 350: Business Statistics (Fall 2012)\nMentor for Summer Institute in Biostatistics (Summer 2014)"
+    "objectID": "index.html#closed-source",
+    "href": "index.html#closed-source",
+    "title": "Things I’ve Built",
+    "section": "Closed Source",
+    "text": "Closed Source\n\nWeb API for NLP (Natural language processing).\nWeb app and backend for time series analysis based on news article NLP (sentiment, entities) of various sources.\nFull stack development of web app for analyzing test flight data."
   },
   {
     "objectID": "archive/blog/2017-07-12-juliaml-basics.html",
