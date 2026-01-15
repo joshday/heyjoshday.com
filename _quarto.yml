@@ -6,7 +6,8 @@ website:
   title: "Josh Day"
   navbar:
     left:
-      - index.qmd
+      - href: index.qmd
+        text: Home
       - blog.qmd
     right:
       - icon: github

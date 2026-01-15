@@ -1,1 +1,17 @@
 /* css styles */
+
+/* Remove horizontal rules under headings */
+h1, h2, h3, h4, h5, h6 {
+  border-bottom: none;
+}
+
+/* Prevent text wrapping in first column of tables */
+table td:first-child,
+table th:first-child {
+  white-space: nowrap;
+}
+
+/* Remove horizontal lines from tables */
+table, table th, table td {
+  border: none;
+}

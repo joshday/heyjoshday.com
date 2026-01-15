@@ -1,52 +1,61 @@
 ---
-title: "Home"
+title: ""
 ---
 
 ![](https://github.com/joshday.png){width=150 fig-align="center" style="border-radius: 50%;"}
 
-My name is Josh. I work on all things "technical computing", but my niche is the intersection of statistics and computer science. I'm good at solving problems and then converting whiteboard math into efficient programs. [Julia](https://julialang.org) is [my favorite language](/posts/2018-08-17-why-i-use-julia.qmd). During my PhD I researched online (a.k.a. streaming/single-pass) algorithms for statistics (see [**OnlineStats.jl**](https://github.com/joshday/OnlineStats.jl)).
+My name is Josh. I work on all things scientific/technical computing, but my niche is the intersection of statistics and computer science. I'm good at solving problems and then converting whiteboard math into efficient programs. [Julia](https://julialang.org) is [my favorite language](/posts/2018-08-17-why-i-use-julia.qmd). During my PhD I researched online (a.k.a. streaming or single-pass) algorithms for statistics (see [OnlineStats.jl](https://github.com/joshday/OnlineStats.jl)).  I spent 8 years at [JuliaHub](https://juliahub.com) working primarily on large government-funded projects (Air Force, DARPA, In-Q-Tel, etc.).  In November 2025 I became the Director of Software Engineering at [Rallypoint One](https://rallypoint1.com) where I am the PI for a variety of (mostly) federally funded programs (Navy SBIR, NSF).
 
 
-## Things I've Built
+# Things I've Built
 
-### Products
+## Products
 
 - [**One Click Tuner**](https://oneclicktuner.com): Chromatic musical instrument tuner for iOS.
-- [**TrendSpot**](https://trendspot.io): Keyword research tool.
+- **TrendSpot**: Keyword research tool.
 
-### Open Source
+## Open Source
 
-- [**OnlineStats**](https://github.com/joshday/OnlineStats.jl): Single-pass algorithms for statistics.
-- [**AverageShiftedHistograms**](https://github.com/joshday/AverageShiftedHistograms.jl): Kernel density estimation for big data.
-- [**SparseRegression**](https://github.com/joshday/SparseRegression.jl): Penalized (Ridge, LASSO, etc.) regression and classification models.
-- Many more projects on [**GitHub**](https://github.com/joshday?tab=repositories).
+*All created in the time before AI assistants.*
 
-### Closed Source
+| Package | Description | Stars |
+|:--------|:------------|:------|
+| [**OnlineStats**](https://github.com/joshday/OnlineStats.jl) | Single-pass algorithms for statistics | ![](https://img.shields.io/github/stars/joshday/OnlineStats.jl) |
+| [**PlotlyLight**](https://github.com/JuliaComputing/PlotlyLight.jl) | Lightweight Plotly.js interface for Julia | ![](https://img.shields.io/github/stars/JuliaComputing/PlotlyLight.jl) |
+| [**XML**](https://github.com/JuliaComputing/XML.jl) | Fast XML parser for Julia | ![](https://img.shields.io/github/stars/JuliaComputing/XML.jl) |
+| [**AverageShiftedHistograms**](https://github.com/joshday/AverageShiftedHistograms.jl) | Kernel density estimation for big data | ![](https://img.shields.io/github/stars/joshday/AverageShiftedHistograms.jl) |
+| [**Cobweb**](https://github.com/JuliaComputing/Cobweb.jl) | HTML templating and components for Julia | ![](https://img.shields.io/github/stars/JuliaComputing/Cobweb.jl) |
+| [**XKCD**](https://github.com/joshday/XKCD.jl) | Fetch XKCD comics from Julia | ![](https://img.shields.io/github/stars/joshday/XKCD.jl) |
+| [**SparseRegression**](https://github.com/joshday/SparseRegression.jl) | Penalized (Ridge, LASSO, etc.) regression | ![](https://img.shields.io/github/stars/joshday/SparseRegression.jl) |
+
+Many more projects on [**GitHub**](https://github.com/joshday?tab=repositories).
+
+## Closed Source
 
 - Web API for NLP (Natural language processing).
 - Web app and backend for time series analysis based on news article NLP (sentiment, entities) of various sources.
 - Full stack development of web app for analyzing test flight data.
 
-## Education
+# Education
 
 | Degree | Year | Institution |
 |:-------|:-----|:------------|
-| **PhD**, Statistics | 2018 | NC State University |
-| **MS**, Statistics | 2014 | NC State |
-|**BS**, Math & Statistics | 2012 | Winona State University |
-|**BA**, Economics & Music | 2009 | Winona State University |
+| **PhD** Statistics | 2018 | NC State University |
+| **MS** Statistics | 2014 | NC State University |
+|**BS** Math & Statistics | 2012 | Winona State University |
+|**BA** Economics & Music | 2009 | Winona State University |
 
 
-## Work History
+# Work History
 
 **Director of Software Engineering at Rallypoint One** (Oct 2025 - Current)
 
-- PI for federally funded programs (NSF, ONR)
+- Principle Investigator for federally funded programs (NSF, ONR).
 
 **Senior Research Scientist at Julia Computing** (Oct 2017 - Oct 2025)
 
 - Led development team for several government R&D customers.
-- Developed open source packages [PlotlyLight.jl](https://github.com/JuliaComputing/PlotlyLight.jl), [SQLiteGraph.jl](https://github.com/JuliaComputing/SQLiteGraph.jl), [XML.jl](https://github.com/joshday/XML.jl), and more as a part of various customer engagements.
+- Developed open source packages [PlotlyLight.jl](https://github.com/JuliaComputing/PlotlyLight.jl), [SQLiteGraph.jl](https://github.com/JuliaComputing/SQLiteGraph.jl), [XML.jl](https://github.com/joshday/XML.jl) to satisfy customer requirements.
 
 
 **Data Scientist II at Valassis Digital** (Aug 2019 - Oct 2019)
@@ -76,7 +85,7 @@ My name is Josh. I work on all things "technical computing", but my niche is the
 
 - Planned and analyzed A/B experiments using SAS and SQL.
 
-## Selected Talks
+# Selected Talks
 
 **Slides and other materials available at** [https://github.com/joshday/Talks](https://github.com/joshday/Talks).
 
@@ -93,7 +102,7 @@ My name is Josh. I work on all things "technical computing", but my niche is the
 - _**Online Optimization**_: NC State, ST 790: Advanced Computing (Spring 2015)
 - _**Penalized Methods: Ridge, Lasso, and Elastic Net**_: NC State Statistical Learning Group (Fall 2014)
 
-## Teaching
+# Teaching
 
 **All courses taught at NC State.**
 
