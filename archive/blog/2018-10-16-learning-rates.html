@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Home – Josh Day</title>
+<title>learning-rates – Josh Day</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +23,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-0b37c64f34216b628666a8dac638b53b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-0b37c64f34216b628666a8dac638b53b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,8 +69,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light">
@@ -80,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Josh Day</span>
     </a>
   </div>
@@ -91,11 +120,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html"> 
+    <a class="nav-link" href="../../blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -123,158 +152,46 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Home</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://github.com/joshday.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="border-radius: 50%;" width="150"></p>
-</figure>
-</div>
-<p>My name is Josh. I work on all things “technical computing”, but my niche is the intersection of statistics and computer science. I’m good at solving problems and then converting whiteboard math into efficient programs. <a href="https://julialang.org">Julia</a> is <a href="./posts/2018-08-17-why-i-use-julia.html">my favorite language</a>. During my PhD I researched online (a.k.a. streaming/single-pass) algorithms for statistics (see <a href="https://github.com/joshday/OnlineStats.jl"><strong>OnlineStats.jl</strong></a>).</p>
-<section id="things-ive-built" class="level2">
-<h2 class="anchored" data-anchor-id="things-ive-built">Things I’ve Built</h2>
-<section id="products" class="level3">
-<h3 class="anchored" data-anchor-id="products">Products</h3>
+<p><span class="citation" data-cites="def">@def</span> title = “Choosing a Learning Rate is Hard” <span class="citation" data-cites="def">@def</span> author = “Josh Day”</p>
+<section id="choosing-a-learning-rate-is-hard" class="level1">
+<h1>Choosing a Learning Rate is Hard</h1>
+<p>Stochastic approximation (SA) algorithms have a wide variety of uses in machine learning and big data. In the SA setup, there’s function you’re trying to minimize,</p>
+<p><span class="math display">\[F(\theta) = E_Y[f(Y,\theta)],\]</span></p>
+<p>but you’re unable (or it’s expensive) to evaluate this expectation. Instead of working with <span class="math inline">\(F\)</span> directly, we’ll use random samples from the distribution of <span class="math inline">\(Y\)</span> (<span class="math inline">\(y_1,y_2,\ldots\)</span>) and take small steps for our estimate <span class="math inline">\(\theta^{(t)}\)</span> that we think will improve (decrease) the value of <span class="math inline">\(F(\theta)\)</span>.</p>
+<hr>
+<p>As a concrete example, think of linear regression:</p>
+<p><span class="math display">\[F(\beta) = \sum_{i=1}^n \frac{1}{2}(y_i - x_i^T\beta)^2.\]</span></p>
+<p>We need to make updates to our estimate <span class="math inline">\(\beta^{(t)}\)</span> given a single observation <span class="math inline">\((y_t, x_t)\)</span>. The SA approach is extendable to mini-batches of multiple observations, but we’ll stay in the single-observation case for now.</p>
+<p>On-line updates for linear regression have a closed form (which I will blog about sometime in the future), but pretend we don’t know this and we’re going to apply stochastic gradient descent (SGD), parameterized by a <strong>learning rate</strong> <span class="math inline">\(\gamma_t\)</span>.</p>
 <ul>
-<li><a href="https://oneclicktuner.com"><strong>One Click Tuner</strong></a>: Chromatic musical instrument tuner for iOS.</li>
-<li><a href="https://trendspot.io"><strong>TrendSpot</strong></a>: Keyword research tool.</li>
+<li><p>SGD (General form) <span class="math display">\[
+\theta^{(t)} = \theta^{(t-1)} - \gamma_t \nabla f(y_t, \theta^{(t-1)}).
+\]</span></p></li>
+<li><p>SGD for Linear Regression: <span class="math display">\[
+\beta^{(t)} = \beta^{(t-1)} + \gamma_t (y_t - x_t^T\beta^{(t-1)})x_t.
+\]</span></p></li>
 </ul>
+<p>This learning rate is often chosen to be <span class="math inline">\(t^{-r}\)</span> where <span class="math inline">\(r \in [.5, 1]\)</span>.</p>
+<hr>
+<section id="what-learning-rate-is-best" class="level2">
+<h2 class="anchored" data-anchor-id="what-learning-rate-is-best">What Learning Rate is “Best”?</h2>
+<p>Below is an animation of the linear regression loss value (<span class="math inline">\(F(\beta)\)</span>) for a changing learning rate parameter (from <span class="math inline">\(.5\)</span> to <span class="math inline">\(1\)</span>) for SGD and variety of variants that supposedly improve on SGD (hyperparameters chosen as recommended by the papers that introduced the algorithm). The y-axis is cut off at the loss evaluated at the OLS estimate, so that as the lines approach the bottom of the plot, the algorithm approaches the best solution.</p>
+<p><img src="https://user-images.githubusercontent.com/8075494/47049048-2a3a4300-d16a-11e8-992d-c21288c6cfac.gif" class="img-fluid"></p>
+<p>Note that you won’t find literature on OMAS, OMAP, and MSPI, as they are introduced in my dissertation (a paper or two is still in the works).</p>
+<p>It is difficult to pick out a clear winner (except for maybe MSPI…) for a few reasons:</p>
+<ol type="1">
+<li><strong>The methods are extremely dependent on the learning rate</strong></li>
+<li><strong>The methods react to the learning rate in different ways</strong></li>
+</ol>
+<p>The takeaway is that <strong>we can’t make definitive statements about which method is best for even a straightforward model like linear regression, so be wary of bold claims</strong> about a given method’s superiority in deep learning. It seems to me that one should be very concerned with an algorithm’s “robustness” to the choice of learning rate, which is something that doesn’t get much attention in the SA literature.</p>
+
+
 </section>
-<section id="open-source" class="level3">
-<h3 class="anchored" data-anchor-id="open-source">Open Source</h3>
-<ul>
-<li><a href="https://github.com/joshday/OnlineStats.jl"><strong>OnlineStats</strong></a>: Single-pass algorithms for statistics.</li>
-<li><a href="https://github.com/joshday/AverageShiftedHistograms.jl"><strong>AverageShiftedHistograms</strong></a>: Kernel density estimation for big data.</li>
-<li><a href="https://github.com/joshday/SparseRegression.jl"><strong>SparseRegression</strong></a>: Penalized (Ridge, LASSO, etc.) regression and classification models.</li>
-<li>Many more projects on <a href="https://github.com/joshday?tab=repositories"><strong>GitHub</strong></a>.</li>
-</ul>
-</section>
-<section id="closed-source" class="level3">
-<h3 class="anchored" data-anchor-id="closed-source">Closed Source</h3>
-<ul>
-<li>Web API for NLP (Natural language processing).</li>
-<li>Web app and backend for time series analysis based on news article NLP (sentiment, entities) of various sources.</li>
-<li>Full stack development of web app for analyzing test flight data.</li>
-</ul>
-</section>
-</section>
-<section id="education" class="level2">
-<h2 class="anchored" data-anchor-id="education">Education</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Degree</th>
-<th style="text-align: left;">Year</th>
-<th style="text-align: left;">Institution</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>PhD</strong>, Statistics</td>
-<td style="text-align: left;">2018</td>
-<td style="text-align: left;">NC State University</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>MS</strong>, Statistics</td>
-<td style="text-align: left;">2014</td>
-<td style="text-align: left;">NC State</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>BS</strong>, Math &amp; Statistics</td>
-<td style="text-align: left;">2012</td>
-<td style="text-align: left;">Winona State University</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>BA</strong>, Economics &amp; Music</td>
-<td style="text-align: left;">2009</td>
-<td style="text-align: left;">Winona State University</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="work-history" class="level2">
-<h2 class="anchored" data-anchor-id="work-history">Work History</h2>
-<p><strong>Director of Software Engineering at Rallypoint One</strong> (Oct 2025 - Current)</p>
-<ul>
-<li>PI for federally funded programs (NSF, ONR)</li>
-</ul>
-<p><strong>Senior Research Scientist at Julia Computing</strong> (Oct 2017 - Oct 2025)</p>
-<ul>
-<li>Led development team for several government R&amp;D customers.</li>
-<li>Developed open source packages <a href="https://github.com/JuliaComputing/PlotlyLight.jl">PlotlyLight.jl</a>, <a href="https://github.com/JuliaComputing/SQLiteGraph.jl">SQLiteGraph.jl</a>, <a href="https://github.com/joshday/XML.jl">XML.jl</a>, and more as a part of various customer engagements.</li>
-</ul>
-<p><strong>Data Scientist II at Valassis Digital</strong> (Aug 2019 - Oct 2019)</p>
-<ul>
-<li>Researched use cases for streaming data models in Ad Tech.</li>
-</ul>
-<p><strong>Data Scientist Intern at MaxPoint</strong> (May 2015 - Aug 2015)</p>
-<ul>
-<li>Developed on-line algorithms for advertising retargeting (logistic and survival models).</li>
-<li>Fitted many Scikit-Learn models.</li>
-</ul>
-<p><strong>Statistical Development Intern at SAS-JMP</strong> (May 2013 - May 2014, May 2015 - May 2016)</p>
-<ul>
-<li>Researched methods being considered for JMP platforms (Bayesian and DOE).</li>
-<li>Wrote test suites using JMP Scripting Language (JSL) for validating statistical results.</li>
-<li>Led development of redesigning the JMP Starter.</li>
-</ul>
-<p><strong>Statistics Consultant at Winona State University</strong> (Jan 2012 - Aug 2012)</p>
-<ul>
-<li>Assisted students and faculty with experiment design, data analysis, and visualization.</li>
-</ul>
-<p><strong>CRM Analytics Intern at Best Buy</strong> (May 2011 - Sep 2011)</p>
-<ul>
-<li>Planned and analyzed A/B experiments using SAS and SQL.</li>
-</ul>
-</section>
-<section id="selected-talks" class="level2">
-<h2 class="anchored" data-anchor-id="selected-talks">Selected Talks</h2>
-<p><strong>Slides and other materials available at</strong> <a href="https://github.com/joshday/Talks">https://github.com/joshday/Talks</a>.</p>
-<ul>
-<li><em><strong>Using Julia on Large, Streaming Datasets</strong></em>: Julia Computing Webinar March 2020 (<a href="https://www.youtube.com/watch?v=mLpLDz4wX60">youtube</a>)</li>
-<li><em><strong>Scalable Data Analysis with JuliaDB and OnlineStats</strong></em>: JuliaCon 2018 (<a href="https://www.youtube.com/watch?v=lyRW1XOwnsg">youtube</a>)</li>
-<li><em><strong>SparseRegression.jl: Linear Models with Sparse Coefficients</strong></em>: JuliaCon 2017 (<a href="https://www.youtube.com/watch?v=xevulz2SQUQ">youtube</a>)</li>
-<li><em><strong>Sorting Algorithms</strong></em>: NC State, ST 758: Statistical Computing (Fall 2017)</li>
-<li><em><strong>Online MM Algorithms for ML</strong></em>: International Chinese Statistical Association Conference 2016</li>
-<li><em><strong>Julia for Modern Data Analysis</strong></em>: PyData Carolinas 2016</li>
-<li><em><strong>OnlineStats.jl: Online Algorithms for Big and Streaming Data</strong></em>: JuliaCon 2016 (<a href="https://www.youtube.com/watch?v=3PpleRjaqeQ">youtube</a>)</li>
-<li><em><strong>Overview of Stochastic Gradient Descent</strong></em>: NC State Statistical Learning Group (Fall 2015)</li>
-<li><em><strong>Intro to Julia</strong></em>: NC State, ST 758: Statistical Computing (Fall 2015)</li>
-<li><em><strong>Intro to R and RCpp</strong></em>: NC State, ST 790: Advanced Computing (Spring 2015)</li>
-<li><em><strong>Online Optimization</strong></em>: NC State, ST 790: Advanced Computing (Spring 2015)</li>
-<li><em><strong>Penalized Methods: Ridge, Lasso, and Elastic Net</strong></em>: NC State Statistical Learning Group (Fall 2014)</li>
-</ul>
-</section>
-<section id="teaching" class="level2">
-<h2 class="anchored" data-anchor-id="teaching">Teaching</h2>
-<p><strong>All courses taught at NC State.</strong></p>
-<ul>
-<li><strong>ST 312</strong>: Intro to Statistics II (Spring 2017, Spring 2015)</li>
-<li><strong>ST 311</strong>: Intro to Statistics I (Fall 2016, Fall 2014)</li>
-<li><strong>ST 350</strong>: Business Statistics (Fall 2012)</li>
-<li>Mentor for <strong>Summer Institute in Biostatistics</strong> (Summer 2014)</li>
-</ul>
-
-
 </section>
 
 </main> <!-- /main -->

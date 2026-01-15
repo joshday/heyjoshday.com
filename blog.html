@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Home – Josh Day</title>
+<title>Blog – Josh Day</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -68,12 +70,70 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -91,11 +151,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html"> 
+    <a class="nav-link active" href="./blog.html" aria-current="page"> 
 <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -121,13 +181,15 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(8)</span></div><div class="category" data-category="QXBwcw==">Apps <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aU9T">iOS <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SnVsaWE=">Julia <span class="quarto-category-count">(3)</span></div><div class="category" data-category="TWFjaGluZSUyMExlYXJuaW5n">Machine Learning <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U3RhdGlzdGljcw==">Statistics <span class="quarto-category-count">(3)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Home</h1>
+<h1 class="title">Blog</h1>
 </div>
 
 
@@ -144,140 +206,261 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://github.com/joshday.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="border-radius: 50%;" width="150"></p>
-</figure>
+
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="SnVsaWE=" data-listing-date-sort="1592265600000" data-listing-file-modified-sort="1768500013170" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="39">
+<div class="thumbnail"><a href="./posts/2020-06-16-new-site.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2020-06-16-new-site.html" class="no-external">New Website Built with Franklin.jl!</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('SnVsaWE='); return false;">Julia</div>
+
 </div>
-<p>My name is Josh. I work on all things “technical computing”, but my niche is the intersection of statistics and computer science. I’m good at solving problems and then converting whiteboard math into efficient programs. <a href="https://julialang.org">Julia</a> is <a href="./posts/2018-08-17-why-i-use-julia.html">my favorite language</a>. During my PhD I researched online (a.k.a. streaming/single-pass) algorithms for statistics (see <a href="https://github.com/joshday/OnlineStats.jl"><strong>OnlineStats.jl</strong></a>).</p>
-<section id="things-ive-built" class="level2">
-<h2 class="anchored" data-anchor-id="things-ive-built">Things I’ve Built</h2>
-<section id="products" class="level3">
-<h3 class="anchored" data-anchor-id="products">Products</h3>
-<ul>
-<li><a href="https://oneclicktuner.com"><strong>One Click Tuner</strong></a>: Chromatic musical instrument tuner for iOS.</li>
-<li><a href="https://trendspot.io"><strong>TrendSpot</strong></a>: Keyword research tool.</li>
-</ul>
-</section>
-<section id="open-source" class="level3">
-<h3 class="anchored" data-anchor-id="open-source">Open Source</h3>
-<ul>
-<li><a href="https://github.com/joshday/OnlineStats.jl"><strong>OnlineStats</strong></a>: Single-pass algorithms for statistics.</li>
-<li><a href="https://github.com/joshday/AverageShiftedHistograms.jl"><strong>AverageShiftedHistograms</strong></a>: Kernel density estimation for big data.</li>
-<li><a href="https://github.com/joshday/SparseRegression.jl"><strong>SparseRegression</strong></a>: Penalized (Ridge, LASSO, etc.) regression and classification models.</li>
-<li>Many more projects on <a href="https://github.com/joshday?tab=repositories"><strong>GitHub</strong></a>.</li>
-</ul>
-</section>
-<section id="closed-source" class="level3">
-<h3 class="anchored" data-anchor-id="closed-source">Closed Source</h3>
-<ul>
-<li>Web API for NLP (Natural language processing).</li>
-<li>Web app and backend for time series analysis based on news article NLP (sentiment, entities) of various sources.</li>
-<li>Full stack development of web app for analyzing test flight data.</li>
-</ul>
-</section>
-</section>
-<section id="education" class="level2">
-<h2 class="anchored" data-anchor-id="education">Education</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Degree</th>
-<th style="text-align: left;">Year</th>
-<th style="text-align: left;">Institution</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>PhD</strong>, Statistics</td>
-<td style="text-align: left;">2018</td>
-<td style="text-align: left;">NC State University</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>MS</strong>, Statistics</td>
-<td style="text-align: left;">2014</td>
-<td style="text-align: left;">NC State</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>BS</strong>, Math &amp; Statistics</td>
-<td style="text-align: left;">2012</td>
-<td style="text-align: left;">Winona State University</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>BA</strong>, Economics &amp; Music</td>
-<td style="text-align: left;">2009</td>
-<td style="text-align: left;">Winona State University</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="work-history" class="level2">
-<h2 class="anchored" data-anchor-id="work-history">Work History</h2>
-<p><strong>Director of Software Engineering at Rallypoint One</strong> (Oct 2025 - Current)</p>
-<ul>
-<li>PI for federally funded programs (NSF, ONR)</li>
-</ul>
-<p><strong>Senior Research Scientist at Julia Computing</strong> (Oct 2017 - Oct 2025)</p>
-<ul>
-<li>Led development team for several government R&amp;D customers.</li>
-<li>Developed open source packages <a href="https://github.com/JuliaComputing/PlotlyLight.jl">PlotlyLight.jl</a>, <a href="https://github.com/JuliaComputing/SQLiteGraph.jl">SQLiteGraph.jl</a>, <a href="https://github.com/joshday/XML.jl">XML.jl</a>, and more as a part of various customer engagements.</li>
-</ul>
-<p><strong>Data Scientist II at Valassis Digital</strong> (Aug 2019 - Oct 2019)</p>
-<ul>
-<li>Researched use cases for streaming data models in Ad Tech.</li>
-</ul>
-<p><strong>Data Scientist Intern at MaxPoint</strong> (May 2015 - Aug 2015)</p>
-<ul>
-<li>Developed on-line algorithms for advertising retargeting (logistic and survival models).</li>
-<li>Fitted many Scikit-Learn models.</li>
-</ul>
-<p><strong>Statistical Development Intern at SAS-JMP</strong> (May 2013 - May 2014, May 2015 - May 2016)</p>
-<ul>
-<li>Researched methods being considered for JMP platforms (Bayesian and DOE).</li>
-<li>Wrote test suites using JMP Scripting Language (JSL) for validating statistical results.</li>
-<li>Led development of redesigning the JMP Starter.</li>
-</ul>
-<p><strong>Statistics Consultant at Winona State University</strong> (Jan 2012 - Aug 2012)</p>
-<ul>
-<li>Assisted students and faculty with experiment design, data analysis, and visualization.</li>
-</ul>
-<p><strong>CRM Analytics Intern at Best Buy</strong> (May 2011 - Sep 2011)</p>
-<ul>
-<li>Planned and analyzed A/B experiments using SAS and SQL.</li>
-</ul>
-</section>
-<section id="selected-talks" class="level2">
-<h2 class="anchored" data-anchor-id="selected-talks">Selected Talks</h2>
-<p><strong>Slides and other materials available at</strong> <a href="https://github.com/joshday/Talks">https://github.com/joshday/Talks</a>.</p>
-<ul>
-<li><em><strong>Using Julia on Large, Streaming Datasets</strong></em>: Julia Computing Webinar March 2020 (<a href="https://www.youtube.com/watch?v=mLpLDz4wX60">youtube</a>)</li>
-<li><em><strong>Scalable Data Analysis with JuliaDB and OnlineStats</strong></em>: JuliaCon 2018 (<a href="https://www.youtube.com/watch?v=lyRW1XOwnsg">youtube</a>)</li>
-<li><em><strong>SparseRegression.jl: Linear Models with Sparse Coefficients</strong></em>: JuliaCon 2017 (<a href="https://www.youtube.com/watch?v=xevulz2SQUQ">youtube</a>)</li>
-<li><em><strong>Sorting Algorithms</strong></em>: NC State, ST 758: Statistical Computing (Fall 2017)</li>
-<li><em><strong>Online MM Algorithms for ML</strong></em>: International Chinese Statistical Association Conference 2016</li>
-<li><em><strong>Julia for Modern Data Analysis</strong></em>: PyData Carolinas 2016</li>
-<li><em><strong>OnlineStats.jl: Online Algorithms for Big and Streaming Data</strong></em>: JuliaCon 2016 (<a href="https://www.youtube.com/watch?v=3PpleRjaqeQ">youtube</a>)</li>
-<li><em><strong>Overview of Stochastic Gradient Descent</strong></em>: NC State Statistical Learning Group (Fall 2015)</li>
-<li><em><strong>Intro to Julia</strong></em>: NC State, ST 758: Statistical Computing (Fall 2015)</li>
-<li><em><strong>Intro to R and RCpp</strong></em>: NC State, ST 790: Advanced Computing (Spring 2015)</li>
-<li><em><strong>Online Optimization</strong></em>: NC State, ST 790: Advanced Computing (Spring 2015)</li>
-<li><em><strong>Penalized Methods: Ridge, Lasso, and Elastic Net</strong></em>: NC State Statistical Learning Group (Fall 2014)</li>
-</ul>
-</section>
-<section id="teaching" class="level2">
-<h2 class="anchored" data-anchor-id="teaching">Teaching</h2>
-<p><strong>All courses taught at NC State.</strong></p>
-<ul>
-<li><strong>ST 312</strong>: Intro to Statistics II (Spring 2017, Spring 2015)</li>
-<li><strong>ST 311</strong>: Intro to Statistics I (Fall 2016, Fall 2014)</li>
-<li><strong>ST 350</strong>: Business Statistics (Fall 2012)</li>
-<li>Mentor for <strong>Summer Institute in Biostatistics</strong> (Summer 2014)</li>
-</ul>
+<div class="delink listing-description"><a href="./posts/2020-06-16-new-site.html" class="no-external">
+<strong>Franklin</strong> is a static site generator written in pure Julia. It’s pretty neat and used in a lot of places, including the JuliaLang website: https://julialang.org.
+</a></div>
+</div>
+<div class="metadata">
+<a href="./posts/2020-06-16-new-site.html" class="no-external">
+<div class="listing-date">
+Jun 16, 2020
+</div>
+<div class="listing-author">
+Josh Day
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="aU9TJTJDQXBwcw==" data-listing-date-sort="1548115200000" data-listing-file-modified-sort="1768500013170" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="73">
+<div class="thumbnail"><a href="./posts/2019-01-22-one-click-tuner.html" class="no-external">
 
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
 
-</section>
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2019-01-22-one-click-tuner.html" class="no-external">One Click Tuner</a>
+</h3>
+<div class="listing-categories">
 
-</main> <!-- /main -->
+<div class="listing-category" onclick="window.quartoListingCategory('aU9T'); return false;">iOS</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('QXBwcw=='); return false;">Apps</div>
+
+</div>
+<div class="delink listing-description"><a href="./posts/2019-01-22-one-click-tuner.html" class="no-external">
+This is a bit off topic for me, but I recently created an iOS Tuner App after not being satisfied with the other tuner apps out there (I play guitar). It was an excuse to…
+</a></div>
+</div>
+<div class="metadata">
+<a href="./posts/2019-01-22-one-click-tuner.html" class="no-external">
+<div class="listing-date">
+Jan 22, 2019
+</div>
+<div class="listing-author">
+Josh Day
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="U3RhdGlzdGljcyUyQ01hY2hpbmUlMjBMZWFybmluZw==" data-listing-date-sort="1539648000000" data-listing-file-modified-sort="1768500013170" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="393">
+<div class="thumbnail"><a href="./posts/2018-10-16-learning-rates.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2018-10-16-learning-rates.html" class="no-external">Choosing a Learning Rate is Hard</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3RhdGlzdGljcw=='); return false;">Statistics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TWFjaGluZSUyMExlYXJuaW5n'); return false;">Machine Learning</div>
+
+</div>
+<div class="delink listing-description"><a href="./posts/2018-10-16-learning-rates.html" class="no-external">
+Stochastic approximation (SA) algorithms have a wide variety of uses in machine learning and big data. In the SA setup, there’s function you’re trying to minimize,
+</a></div>
+</div>
+<div class="metadata">
+<a href="./posts/2018-10-16-learning-rates.html" class="no-external">
+<div class="listing-date">
+Oct 16, 2018
+</div>
+<div class="listing-author">
+Josh Day
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="SnVsaWE=" data-listing-date-sort="1534464000000" data-listing-file-modified-sort="1768500013170" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="622">
+<div class="thumbnail"><a href="./posts/2018-08-17-why-i-use-julia.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2018-08-17-why-i-use-julia.html" class="no-external">Why I Use Julia</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('SnVsaWE='); return false;">Julia</div>
+
+</div>
+<div class="delink listing-description"><a href="./posts/2018-08-17-why-i-use-julia.html" class="no-external">
+When I am asked why I use Julia, my immediate response is “multiple dispatch”. Julia is well-known for performance, but that is only a part of what keeps me using it every…
+</a></div>
+</div>
+<div class="metadata">
+<a href="./posts/2018-08-17-why-i-use-julia.html" class="no-external">
+<div class="listing-date">
+Aug 17, 2018
+</div>
+<div class="listing-author">
+Josh Day
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="U3RhdGlzdGljcyUyQ01hY2hpbmUlMjBMZWFybmluZw==" data-listing-date-sort="1511827200000" data-listing-file-modified-sort="1768500013170" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="213">
+<div class="thumbnail"><a href="./posts/2017-11-28-adagrad-has-learning-rate.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2017-11-28-adagrad-has-learning-rate.html" class="no-external">AdaGrad has a Learning Rate</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3RhdGlzdGljcw=='); return false;">Statistics</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TWFjaGluZSUyMExlYXJuaW5n'); return false;">Machine Learning</div>
+
+</div>
+<div class="delink listing-description"><a href="./posts/2017-11-28-adagrad-has-learning-rate.html" class="no-external">
+AdaGrad (PDF) is an interesting algorithm for adaptive element-wise learning rates. First consider a stochastic gradient descent (SGD) update
+</a></div>
+</div>
+<div class="metadata">
+<a href="./posts/2017-11-28-adagrad-has-learning-rate.html" class="no-external">
+<div class="listing-date">
+Nov 28, 2017
+</div>
+<div class="listing-author">
+Josh Day
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-categories="SnVsaWE=" data-listing-date-sort="1499817600000" data-listing-file-modified-sort="1768500013170" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="521">
+<div class="thumbnail"><a href="./posts/2017-07-12-juliaml-basics.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2017-07-12-juliaml-basics.html" class="no-external">JuliaML Basics</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('SnVsaWE='); return false;">Julia</div>
+
+</div>
+<div class="delink listing-description"><a href="./posts/2017-07-12-juliaml-basics.html" class="no-external">
+JuliaML is a GitHub organization dedicated to building tools for machine learning in Julia. This post serves as an introduction to some of the building blocks which JuliaML…
+</a></div>
+</div>
+<div class="metadata">
+<a href="./posts/2017-07-12-juliaml-basics.html" class="no-external">
+<div class="listing-date">
+Jul 12, 2017
+</div>
+<div class="listing-author">
+Josh Day
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="6" data-categories="U3RhdGlzdGljcw==" data-listing-date-sort="1482537600000" data-listing-file-modified-sort="1768500013170" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="393">
+<div class="thumbnail"><a href="./posts/2016-12-24-mm-algorithms.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2016-12-24-mm-algorithms.html" class="no-external">MM Algorithms</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('U3RhdGlzdGljcw=='); return false;">Statistics</div>
+
+</div>
+<div class="delink listing-description"><a href="./posts/2016-12-24-mm-algorithms.html" class="no-external">
+Majorization-Minimization (MM) is an important concept in optimization. It is more of a principle than a specific algorithm, and many algorithms can be interpreted under the…<em></em>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./posts/2016-12-24-mm-algorithms.html" class="no-external">
+<div class="listing-date">
+Dec 24, 2016
+</div>
+<div class="listing-author">
+Josh Day
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="7" data-categories="Ug==" data-listing-date-sort="1443744000000" data-listing-file-modified-sort="1768500013170" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="87">
+<div class="thumbnail"><a href="./posts/2015-10-02-glmnet-tutorial.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2015-10-02-glmnet-tutorial.html" class="no-external">GLMNet Tutorial</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+</div>
+<div class="delink listing-description"><a href="./posts/2015-10-02-glmnet-tutorial.html" class="no-external">
+Recently, a friend informed me that something I created for NC State’s Statistical Learning Group comes up on a google search for “glmnet tutorial”. In fall 2014, I gave an…
+</a></div>
+</div>
+<div class="metadata">
+<a href="./posts/2015-10-02-glmnet-tutorial.html" class="no-external">
+<div class="listing-date">
+Oct 2, 2015
+</div>
+<div class="listing-author">
+Josh Day
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

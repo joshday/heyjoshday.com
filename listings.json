@@ -1,0 +1,15 @@
+[
+  {
+    "listing": "/blog.html",
+    "items": [
+      "/posts/2020-06-16-new-site.html",
+      "/posts/2019-01-22-one-click-tuner.html",
+      "/posts/2018-10-16-learning-rates.html",
+      "/posts/2018-08-17-why-i-use-julia.html",
+      "/posts/2017-11-28-adagrad-has-learning-rate.html",
+      "/posts/2017-07-12-juliaml-basics.html",
+      "/posts/2016-12-24-mm-algorithms.html",
+      "/posts/2015-10-02-glmnet-tutorial.html"
+    ]
+  }
+]

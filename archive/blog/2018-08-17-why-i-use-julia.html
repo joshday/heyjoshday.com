@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Home – Josh Day</title>
+<title>why-i-use-julia – Josh Day</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-0b37c64f34216b628666a8dac638b53b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-0b37c64f34216b628666a8dac638b53b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,8 +104,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light">
@@ -80,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Josh Day</span>
     </a>
   </div>
@@ -91,11 +155,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html"> 
+    <a class="nav-link" href="../../blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -123,158 +187,76 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Home</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
+<p><span class="citation" data-cites="def">@def</span> title = “Why I use Julia” <span class="citation" data-cites="def">@def</span> author = “Josh Day” <span class="citation" data-cites="def">@def</span> tags = [“Julia”]</p>
+<section id="why-i-use-julia" class="level1">
+<h1>Why I Use Julia</h1>
+<section id="multiple-dispatch-jit-dynamic-and-compiled" class="level2">
+<h2 class="anchored" data-anchor-id="multiple-dispatch-jit-dynamic-and-compiled">Multiple Dispatch + JIT (Dynamic and Compiled)</h2>
+<p>When I am asked why I use Julia, my immediate response is “multiple dispatch”. Julia is well-known for performance, but that is only a part of what keeps me using it every day. <a href="https://en.wikipedia.org/wiki/Multiple_dispatch">Multiple dispatch</a> is a feature where different code is called by a function depending on the types of the arguments. Combined with the JIT (Just-in-time compiler), Julia will automatically compile specialized code for each set of argument types the function is called with.</p>
+<section id="simple-example" class="level3">
+<h3 class="anchored" data-anchor-id="simple-example">Simple Example</h3>
+<pre><code>f(x) = x + x</code></pre>
+<p>I have not given Julia any hint as to what the type of the argument is, but as long as it’s a type that supports addition, Julia will compile an optimized method for it. You can peek at the LLVM compiler code with the <code>@code_llvm</code> macro.</p>
+<pre><code>julia&gt; @code_llvm f(1)
 
+define i64 @julia_f_62945(i64) #0 !dbg !5 {
+top:
+  %1 = shl i64 %0, 1
+  ret i64 %1
+}
 
-</header>
+julia&gt; @code_llvm f(1.0)
 
-
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://github.com/joshday.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="border-radius: 50%;" width="150"></p>
-</figure>
-</div>
-<p>My name is Josh. I work on all things “technical computing”, but my niche is the intersection of statistics and computer science. I’m good at solving problems and then converting whiteboard math into efficient programs. <a href="https://julialang.org">Julia</a> is <a href="./posts/2018-08-17-why-i-use-julia.html">my favorite language</a>. During my PhD I researched online (a.k.a. streaming/single-pass) algorithms for statistics (see <a href="https://github.com/joshday/OnlineStats.jl"><strong>OnlineStats.jl</strong></a>).</p>
-<section id="things-ive-built" class="level2">
-<h2 class="anchored" data-anchor-id="things-ive-built">Things I’ve Built</h2>
-<section id="products" class="level3">
-<h3 class="anchored" data-anchor-id="products">Products</h3>
-<ul>
-<li><a href="https://oneclicktuner.com"><strong>One Click Tuner</strong></a>: Chromatic musical instrument tuner for iOS.</li>
-<li><a href="https://trendspot.io"><strong>TrendSpot</strong></a>: Keyword research tool.</li>
-</ul>
+define double @julia_f_62949(double) #0 !dbg !5 {
+top:
+  %1 = fadd double %0, %0
+  ret double %1
+}</code></pre>
+<p>Ignoring some of the details, notice that these functions do not call the same code: one method is specific to 64-bit integers and the other for double precision floats!</p>
 </section>
-<section id="open-source" class="level3">
-<h3 class="anchored" data-anchor-id="open-source">Open Source</h3>
-<ul>
-<li><a href="https://github.com/joshday/OnlineStats.jl"><strong>OnlineStats</strong></a>: Single-pass algorithms for statistics.</li>
-<li><a href="https://github.com/joshday/AverageShiftedHistograms.jl"><strong>AverageShiftedHistograms</strong></a>: Kernel density estimation for big data.</li>
-<li><a href="https://github.com/joshday/SparseRegression.jl"><strong>SparseRegression</strong></a>: Penalized (Ridge, LASSO, etc.) regression and classification models.</li>
-<li>Many more projects on <a href="https://github.com/joshday?tab=repositories"><strong>GitHub</strong></a>.</li>
-</ul>
+<section id="what-about-more-complicated-types" class="level3">
+<h3 class="anchored" data-anchor-id="what-about-more-complicated-types">What About More Complicated Types?</h3>
+<p>Here we will use the <a href="https://github.com/JuliaStats/Distributions.jl">Distributions</a> package to implement a naive quantile finder using <a href="https://en.wikipedia.org/wiki/Newton%27s_method">Newton’s Method</a>:</p>
+<p><span class="math display">\[
+x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
+\]</span></p>
+<p>For quantiles, we are trying to find the number <code>x</code>, for a given number <code>q</code> (between 0 and 1), such that</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cdf</span>(dist, x) <span class="op">-</span> q <span class="op">=</span> <span class="fl">0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>where <code>cdf</code> is the <a href="https://en.wikipedia.org/wiki/Cumulative_distribution_function">cumulative distribution function</a> for distribution <code>dist</code>. We also need the derivative of the cdf, which is the <a href="https://en.wikipedia.org/wiki/Probability_density_function">probability density function</a>, or pdf.</p>
+<pre><code>using Distributions
+
+function myquantile(d, q)
+    out = mean(d)
+    for i in 1:10
+        out -= (cdf(d, out) - q) / pdf(d, out)
+    end
+    out
+end</code></pre>
+<p>Again, I have not told Julia anything about what <code>d</code> or <code>q</code> is, but when I provide arguments such as <code>Distributions.Normal(0, 1)</code> and <code>0.5</code>, Julia will compile specialized code to run the algorithm and then return the median for a standard normal distribution (which is 0).</p>
+<pre><code>julia&gt; myquantile(Normal(0,1), .5)
+0.0</code></pre>
+<p>Right out of the box, <code>myquantile</code> will also work with other distributions! In fact, as long as the function arguments have methods for <code>mean</code>, <code>cdf</code>, and <code>pdf</code>, it will just work! If you were to implement this quantile algorithm in R, you would need to rewrite it for each distribution using the <a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Normal.html"><code>dnorm</code>/<code>pnorm</code></a> family of functions.</p>
+<pre><code>julia&gt; myquantile(Gamma(5,1), .7)
+5.890361313697006
+
+julia&gt; myquantile(Beta(2, 4), .1)
+0.11223495854585855</code></pre>
 </section>
-<section id="closed-source" class="level3">
-<h3 class="anchored" data-anchor-id="closed-source">Closed Source</h3>
-<ul>
-<li>Web API for NLP (Natural language processing).</li>
-<li>Web app and backend for time series analysis based on news article NLP (sentiment, entities) of various sources.</li>
-<li>Full stack development of web app for analyzing test flight data.</li>
-</ul>
 </section>
-</section>
-<section id="education" class="level2">
-<h2 class="anchored" data-anchor-id="education">Education</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Degree</th>
-<th style="text-align: left;">Year</th>
-<th style="text-align: left;">Institution</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>PhD</strong>, Statistics</td>
-<td style="text-align: left;">2018</td>
-<td style="text-align: left;">NC State University</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>MS</strong>, Statistics</td>
-<td style="text-align: left;">2014</td>
-<td style="text-align: left;">NC State</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>BS</strong>, Math &amp; Statistics</td>
-<td style="text-align: left;">2012</td>
-<td style="text-align: left;">Winona State University</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>BA</strong>, Economics &amp; Music</td>
-<td style="text-align: left;">2009</td>
-<td style="text-align: left;">Winona State University</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="work-history" class="level2">
-<h2 class="anchored" data-anchor-id="work-history">Work History</h2>
-<p><strong>Director of Software Engineering at Rallypoint One</strong> (Oct 2025 - Current)</p>
-<ul>
-<li>PI for federally funded programs (NSF, ONR)</li>
-</ul>
-<p><strong>Senior Research Scientist at Julia Computing</strong> (Oct 2017 - Oct 2025)</p>
-<ul>
-<li>Led development team for several government R&amp;D customers.</li>
-<li>Developed open source packages <a href="https://github.com/JuliaComputing/PlotlyLight.jl">PlotlyLight.jl</a>, <a href="https://github.com/JuliaComputing/SQLiteGraph.jl">SQLiteGraph.jl</a>, <a href="https://github.com/joshday/XML.jl">XML.jl</a>, and more as a part of various customer engagements.</li>
-</ul>
-<p><strong>Data Scientist II at Valassis Digital</strong> (Aug 2019 - Oct 2019)</p>
-<ul>
-<li>Researched use cases for streaming data models in Ad Tech.</li>
-</ul>
-<p><strong>Data Scientist Intern at MaxPoint</strong> (May 2015 - Aug 2015)</p>
-<ul>
-<li>Developed on-line algorithms for advertising retargeting (logistic and survival models).</li>
-<li>Fitted many Scikit-Learn models.</li>
-</ul>
-<p><strong>Statistical Development Intern at SAS-JMP</strong> (May 2013 - May 2014, May 2015 - May 2016)</p>
-<ul>
-<li>Researched methods being considered for JMP platforms (Bayesian and DOE).</li>
-<li>Wrote test suites using JMP Scripting Language (JSL) for validating statistical results.</li>
-<li>Led development of redesigning the JMP Starter.</li>
-</ul>
-<p><strong>Statistics Consultant at Winona State University</strong> (Jan 2012 - Aug 2012)</p>
-<ul>
-<li>Assisted students and faculty with experiment design, data analysis, and visualization.</li>
-</ul>
-<p><strong>CRM Analytics Intern at Best Buy</strong> (May 2011 - Sep 2011)</p>
-<ul>
-<li>Planned and analyzed A/B experiments using SAS and SQL.</li>
-</ul>
-</section>
-<section id="selected-talks" class="level2">
-<h2 class="anchored" data-anchor-id="selected-talks">Selected Talks</h2>
-<p><strong>Slides and other materials available at</strong> <a href="https://github.com/joshday/Talks">https://github.com/joshday/Talks</a>.</p>
-<ul>
-<li><em><strong>Using Julia on Large, Streaming Datasets</strong></em>: Julia Computing Webinar March 2020 (<a href="https://www.youtube.com/watch?v=mLpLDz4wX60">youtube</a>)</li>
-<li><em><strong>Scalable Data Analysis with JuliaDB and OnlineStats</strong></em>: JuliaCon 2018 (<a href="https://www.youtube.com/watch?v=lyRW1XOwnsg">youtube</a>)</li>
-<li><em><strong>SparseRegression.jl: Linear Models with Sparse Coefficients</strong></em>: JuliaCon 2017 (<a href="https://www.youtube.com/watch?v=xevulz2SQUQ">youtube</a>)</li>
-<li><em><strong>Sorting Algorithms</strong></em>: NC State, ST 758: Statistical Computing (Fall 2017)</li>
-<li><em><strong>Online MM Algorithms for ML</strong></em>: International Chinese Statistical Association Conference 2016</li>
-<li><em><strong>Julia for Modern Data Analysis</strong></em>: PyData Carolinas 2016</li>
-<li><em><strong>OnlineStats.jl: Online Algorithms for Big and Streaming Data</strong></em>: JuliaCon 2016 (<a href="https://www.youtube.com/watch?v=3PpleRjaqeQ">youtube</a>)</li>
-<li><em><strong>Overview of Stochastic Gradient Descent</strong></em>: NC State Statistical Learning Group (Fall 2015)</li>
-<li><em><strong>Intro to Julia</strong></em>: NC State, ST 758: Statistical Computing (Fall 2015)</li>
-<li><em><strong>Intro to R and RCpp</strong></em>: NC State, ST 790: Advanced Computing (Spring 2015)</li>
-<li><em><strong>Online Optimization</strong></em>: NC State, ST 790: Advanced Computing (Spring 2015)</li>
-<li><em><strong>Penalized Methods: Ridge, Lasso, and Elastic Net</strong></em>: NC State Statistical Learning Group (Fall 2014)</li>
-</ul>
-</section>
-<section id="teaching" class="level2">
-<h2 class="anchored" data-anchor-id="teaching">Teaching</h2>
-<p><strong>All courses taught at NC State.</strong></p>
-<ul>
-<li><strong>ST 312</strong>: Intro to Statistics II (Spring 2017, Spring 2015)</li>
-<li><strong>ST 311</strong>: Intro to Statistics I (Fall 2016, Fall 2014)</li>
-<li><strong>ST 350</strong>: Business Statistics (Fall 2012)</li>
-<li>Mentor for <strong>Summer Institute in Biostatistics</strong> (Summer 2014)</li>
-</ul>
+<section id="takeaway" class="level2">
+<h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
+<p>The language you use has a tremendous effect on how you approach problems (see <a href="https://en.wikipedia.org/wiki/Linguistic_relativity">linguistic relativity</a>). I have a background in statistics, so naturally R was one of the first languages I learned. I don’t mean to bash R (language wars are boring) as it is a fantastic tool for data analysis, but I often find myself asking “how do I solve this without a for loop?” since <a href="http://adv-r.had.co.nz/Performance.html">loops are slow in R</a>. In Julia, I have fewer performance obstacles, so my questions are more along the lines of “what are the methods I’m trying to accomplish this task with?”. If I can reduce a task to the operations that need to be performed, it becomes easy to write abstract yet performant code that works with any types I throw at it.</p>
+<p>Multiple dispatch has become invaluable to how I code, and with Julia you get it along with stellar performance. If you want to see how I use multiple dispatch to get a lot done with very little code, check out my package <a href="https://github.com/joshday/OnlineStats.jl">OnlineStats.jl</a> for calculating statistics/models on data streams with single-pass algorithms.</p>
+<p>I hope you try Julia for yourself and have the same experience I had.</p>
+<p><strong>Come for the speed. Stay for the productivity.</strong></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
