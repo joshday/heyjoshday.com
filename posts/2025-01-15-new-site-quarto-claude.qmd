@@ -1,0 +1,10 @@
+---
+title: "New Website built with Quarto!"
+author: "Josh Day"
+date: "2025-01-15"
+categories: [Quarto, AI]
+---
+
+I recently rebuilt my personal website using [Quarto](https://quarto.org), mostly via [Claude Code](https://claude.ai). The previous version was built with [Franklin.jl](https://github.com/tlienart/Franklin.jl), a (really cool) static site generator written in Julia.  I'm still kicking the tires on AI-centric development workflows and this was a good exercise.
+
+Quarto covers so many use cases I've decided to invest in it as a medium.  This way, when I'm generating a report/website/etc., I'll have some knowledge about the format.
